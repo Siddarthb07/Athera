@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Athera — Book a call, send us a message, or reach out to discuss how AI can transform your business operations.">
+  <title>Contact — Athera</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
+</head>
+<body>
+  <div class="page-transition"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="contact.html" class="btn btn-primary btn-glow nav-cta"><span>Book a Call</span></a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero" style="position:relative;overflow:hidden;">
+    <div class="hero-particles" id="heroParticles" style="position:absolute;inset:0;z-index:0;"></div>
+    <div class="hero-gradient hero-gradient-1" style="position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(120px);opacity:0.12;top:-200px;right:-100px;background:var(--rose-gold);"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="section-subtitle">Get in Touch</div>
+      <h1>Let's Start <span class="text-gradient">Building</span></h1>
+      <p>Ready to transform your business with AI? Book a free strategy call or send us a message — we'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="reveal-left">
+          <h3 style="margin-bottom:8px;">Send a Message</h3>
+          <p style="color:var(--gray-300);margin-bottom:32px;line-height:1.7;">Fill out the form below and we'll get back to you within 24 hours.</p>
+          <form class="contact-form" id="contactForm">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Smith" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your Company">
+              </div>
+              <div class="form-group">
+                <label for="service">Service Interest</label>
+                <select id="service" name="service">
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="Lead Generation">Lead Generation</option>
+                  <option value="Ad Generation">Ad Generation</option>
+                  <option value="AI Chatbots">AI Chatbots</option>
+                  <option value="AI Receptionists">AI Receptionists</option>
+                  <option value="AI Workflows">AI Workflows</option>
+                  <option value="Custom Solution">Custom Solution</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-glow" style="align-self:flex-start;">
+              <span>Send Message</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="reveal-right">
+          <h3 style="margin-bottom:8px;">Or, Book a Call Directly</h3>
+          <p style="color:var(--gray-300);margin-bottom:32px;line-height:1.7;">Prefer to talk? Schedule a free 30-minute strategy session with our team.</p>
+
+          <!-- Book a Call Card -->
+          <a href="mailto:siddarthb078@gmail.com?subject=Book%20a%20Call%20-%20Athera" class="contact-info-card" style="margin-bottom:32px;background:var(--rose-gold-subtle);border-color:var(--rose-gold-dark);">
+            <div class="contact-info-icon" style="background:var(--rose-gold);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <h5 style="color:var(--white);">Book a Free Strategy Call</h5>
+              <p>30-minute session with our AI experts →</p>
+            </div>
+          </a>
+
+          <div class="contact-info-cards">
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <h5>Email Us</h5>
+                <p><a href="mailto:siddarthb078@gmail.com" style="color:var(--rose-gold-light);">siddarthb078@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h5>Location</h5>
+                <p>Operating Globally, Based in India</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h5>Response Time</h5>
+                <p>We respond within 24 hours</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div style="margin-top:40px;">
+            <h5 style="font-family:var(--font-heading);color:var(--gray-300);margin-bottom:16px;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;">Follow Us</h5>
+            <div class="footer-socials">
+              <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+              <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+              <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-subtitle">FAQ</div>
+        <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+      </div>
+      <div style="max-width:700px;margin:0 auto;">
+        <div class="card reveal" style="margin-bottom:16px;padding:28px 32px;cursor:pointer;" onclick="this.querySelector('.faq-answer').classList.toggle('open');this.querySelector('.faq-icon').classList.toggle('open');">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h4 style="font-size:1.05rem;">How quickly can you deliver results?</h4>
+            <span class="faq-icon" style="color:var(--rose-gold);font-size:1.5rem;transition:transform 0.3s;">+</span>
+          </div>
+          <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding-top 0.4s ease;color:var(--gray-300);line-height:1.7;">
+            <p style="padding-top:16px;">Most projects go live within 2–4 weeks. For simpler implementations like chatbots, we can deploy in as little as one week. Complex workflow automations may take 4–6 weeks.</p>
+          </div>
+        </div>
+        <div class="card reveal" style="margin-bottom:16px;padding:28px 32px;cursor:pointer;" onclick="this.querySelector('.faq-answer').classList.toggle('open');this.querySelector('.faq-icon').classList.toggle('open');">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h4 style="font-size:1.05rem;">What industries do you work with?</h4>
+            <span class="faq-icon" style="color:var(--rose-gold);font-size:1.5rem;transition:transform 0.3s;">+</span>
+          </div>
+          <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding-top 0.4s ease;color:var(--gray-300);line-height:1.7;">
+            <p style="padding-top:16px;">We work across industries including healthcare, finance, e-commerce, real estate, SaaS, and professional services. Our AI solutions are adaptable to any business model.</p>
+          </div>
+        </div>
+        <div class="card reveal" style="margin-bottom:16px;padding:28px 32px;cursor:pointer;" onclick="this.querySelector('.faq-answer').classList.toggle('open');this.querySelector('.faq-icon').classList.toggle('open');">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h4 style="font-size:1.05rem;">Do you offer ongoing support?</h4>
+            <span class="faq-icon" style="color:var(--rose-gold);font-size:1.5rem;transition:transform 0.3s;">+</span>
+          </div>
+          <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding-top 0.4s ease;color:var(--gray-300);line-height:1.7;">
+            <p style="padding-top:16px;">Absolutely. We offer maintenance plans, performance monitoring, and continuous optimization to ensure your AI systems keep delivering results as your business grows.</p>
+          </div>
+        </div>
+        <div class="card reveal" style="margin-bottom:16px;padding:28px 32px;cursor:pointer;" onclick="this.querySelector('.faq-answer').classList.toggle('open');this.querySelector('.faq-icon').classList.toggle('open');">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h4 style="font-size:1.05rem;">What's the investment range?</h4>
+            <span class="faq-icon" style="color:var(--rose-gold);font-size:1.5rem;transition:transform 0.3s;">+</span>
+          </div>
+          <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding-top 0.4s ease;color:var(--gray-300);line-height:1.7;">
+            <p style="padding-top:16px;">Our solutions start from $2,500/month for single-service implementations. Custom enterprise solutions are quoted based on scope. Every engagement begins with a free strategy call to understand your needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
+          <p>Intelligence at Work. We build AI solutions that drive real business results.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html">Lead Generation</a></li>
+            <li><a href="services.html">Ad Generation</a></li>
+            <li><a href="services.html">AI Chatbots</a></li>
+            <li><a href="services.html">AI Receptionists</a></li>
+            <li><a href="services.html">AI Workflows</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
+            <li><a href="contact.html">Book a Call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Athera. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .faq-answer.open { max-height: 200px !important; }
+    .faq-icon.open { transform: rotate(45deg); }
+  </style>
+
+  <script src="particles-config.js"></script>
+  <script src="nav.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
