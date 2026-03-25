@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Athera Portfolio — Explore our AI case studies and success stories across lead generation, chatbots, ad systems, and workflow automation.">
+  <title>Portfolio — Athera</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
+</head>
+<body>
+  <div class="page-transition"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="portfolio.html" class="nav-link active">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn btn-primary btn-glow nav-cta"><span>Book a Call</span></a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero" style="position:relative;overflow:hidden;">
+    <div class="hero-particles" id="heroParticles" style="position:absolute;inset:0;z-index:0;"></div>
+    <div class="hero-gradient hero-gradient-1" style="position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(120px);opacity:0.12;top:-200px;right:-100px;background:var(--rose-gold);"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="section-subtitle">Our Work</div>
+      <h1>Case Studies &amp; <span class="text-gradient">Results</span></h1>
+      <p>Real projects. Real numbers. See how Athera's AI solutions have transformed businesses across industries.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section>
+    <div class="container">
+      <!-- Filters -->
+      <div class="portfolio-filters reveal">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="leadgen">Lead Gen</button>
+        <button class="filter-btn" data-filter="adgen">Ad Gen</button>
+        <button class="filter-btn" data-filter="chatbot">Chatbots</button>
+        <button class="filter-btn" data-filter="receptionist">Receptionists</button>
+        <button class="filter-btn" data-filter="workflow">Workflows</button>
+      </div>
+
+      <!-- Cards -->
+      <div class="portfolio-grid stagger">
+        <!-- Project 1 -->
+        <div class="portfolio-card reveal" data-category="leadgen">
+          <div class="portfolio-card-image">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--rose-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="float"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-tag">Lead Generation</div>
+            <h4>TechScale Solutions</h4>
+            <p>AI-powered B2B lead scoring system that increased qualified pipeline by 340% in 90 days.</p>
+          </div>
+          <div class="portfolio-card-stats">
+            <div class="portfolio-card-stat">
+              <div class="number">340%</div>
+              <div class="label">Pipeline Growth</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">3x</div>
+              <div class="label">Lead Quality</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">45 Days</div>
+              <div class="label">Time to ROI</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="portfolio-card reveal" data-category="adgen">
+          <div class="portfolio-card-image">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--rose-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="float"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-tag">Ad Generation</div>
+            <h4>NovaBrand Agency</h4>
+            <p>AI ad creative system generating 200+ high-converting ad variants per week across platforms.</p>
+          </div>
+          <div class="portfolio-card-stats">
+            <div class="portfolio-card-stat">
+              <div class="number">-60%</div>
+              <div class="label">CPA Reduction</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">200+</div>
+              <div class="label">Ads/Week</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">4.2x</div>
+              <div class="label">ROAS</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="portfolio-card reveal" data-category="chatbot">
+          <div class="portfolio-card-image">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--rose-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="float"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-tag">AI Chatbot</div>
+            <h4>FinEdge Capital</h4>
+            <p>Conversational AI for financial services handling 10K+ queries/day with 96% resolution rate.</p>
+          </div>
+          <div class="portfolio-card-stats">
+            <div class="portfolio-card-stat">
+              <div class="number">96%</div>
+              <div class="label">Resolution Rate</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">10K+</div>
+              <div class="label">Daily Queries</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">$2.1M</div>
+              <div class="label">Cost Saved</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="portfolio-card reveal" data-category="receptionist">
+          <div class="portfolio-card-image">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--rose-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="float"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-tag">AI Receptionist</div>
+            <h4>Luxe Dental Group</h4>
+            <p>AI voice receptionist handling all inbound calls, booking appointments, and following up automatically.</p>
+          </div>
+          <div class="portfolio-card-stats">
+            <div class="portfolio-card-stat">
+              <div class="number">200%</div>
+              <div class="label">Booking Rate</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">0%</div>
+              <div class="label">Missed Calls</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">24/7</div>
+              <div class="label">Availability</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="portfolio-card reveal" data-category="workflow">
+          <div class="portfolio-card-image">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--rose-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="float"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-tag">AI Workflow</div>
+            <h4>Velocity Commerce</h4>
+            <p>End-to-end order processing automation connecting Shopify, fulfillment, and customer service systems.</p>
+          </div>
+          <div class="portfolio-card-stats">
+            <div class="portfolio-card-stat">
+              <div class="number">40h+</div>
+              <div class="label">Hours Saved/Wk</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">99.9%</div>
+              <div class="label">Accuracy</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">5x</div>
+              <div class="label">Throughput</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="portfolio-card reveal" data-category="leadgen">
+          <div class="portfolio-card-image">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--rose-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="float"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-tag">Lead Generation</div>
+            <h4>Quantum Dynamics</h4>
+            <p>Intelligent outbound lead engine generating 3x more qualified prospects than the entire sales team.</p>
+          </div>
+          <div class="portfolio-card-stats">
+            <div class="portfolio-card-stat">
+              <div class="number">3x</div>
+              <div class="label">More Prospects</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">$4.8M</div>
+              <div class="label">Revenue Added</div>
+            </div>
+            <div class="portfolio-card-stat">
+              <div class="number">6 Mo</div>
+              <div class="label">Payback Period</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal-scale">
+        <div class="section-subtitle">Your Project Next?</div>
+        <h2>Let's Create Your <span class="text-gradient">Success Story</span></h2>
+        <p>Ready to see these kinds of results for your business? Let's talk about what AI can do for you.</p>
+        <a href="mailto:siddarthb078@gmail.com?subject=Book%20a%20Call%20-%20Athera%20Portfolio" class="btn btn-primary btn-glow btn-magnetic">
+          <span>Book a Call</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
+          <p>Intelligence at Work. We build AI solutions that drive real business results.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html">Lead Generation</a></li>
+            <li><a href="services.html">Ad Generation</a></li>
+            <li><a href="services.html">AI Chatbots</a></li>
+            <li><a href="services.html">AI Receptionists</a></li>
+            <li><a href="services.html">AI Workflows</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
+            <li><a href="contact.html">Book a Call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Athera. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="particles-config.js"></script>
+  <script src="nav.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>

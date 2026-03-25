@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Athera — Intelligence at Work. Premium AI agency delivering cutting-edge solutions in lead generation, ad generation, AI chatbots, AI receptionists, and workflow automation.">
+  <title>Athera — Intelligence at Work</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-text">ATHERA</div>
+    <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+  </div>
+
+  <!-- Page Transition -->
+  <div class="page-transition"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-dot"></span> ATHERA
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn btn-primary btn-glow nav-cta"><span>Book a Call</span></a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-gradient hero-gradient-1"></div>
+    <div class="hero-gradient hero-gradient-2"></div>
+    <div class="container hero-content">
+      <div class="hero-tagline" style="transform: translateY(20px);">AI-Powered Growth Agency</div>
+      <h1 class="hero-title">
+        <span class="line"><span class="line-inner">Intelligence</span></span>
+        <span class="line"><span class="line-inner">at <span class="text-gradient">Work</span></span></span>
+      </h1>
+      <p class="hero-description" style="transform: translateY(20px);">
+        We build AI systems that transform how businesses operate — from intelligent chatbots to automated lead generation. 
+        Your growth, engineered.
+      </p>
+      <div class="hero-cta" style="transform: translateY(20px);">
+        <a href="contact.html" class="btn btn-primary btn-glow btn-magnetic">
+          <span>Book a Call</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="services.html" class="btn btn-outline">
+          <span>Our Services</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES OVERVIEW ===== -->
+  <section id="services" style="position:relative;">
+    <div class="section-orb bg-orb" style="position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(183,110,121,0.08),transparent 70%);top:10%;right:-200px;pointer-events:none;"></div>
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-subtitle">What We Do</div>
+        <h2>AI Solutions That <span class="text-gradient">Deliver Results</span></h2>
+        <p class="section-description">End-to-end AI services designed to automate, optimize, and scale your business operations.</p>
+      </div>
+      <div class="stats-grid stagger" style="grid-template-columns: repeat(5, 1fr);">
+        <!-- Lead Generation -->
+        <div class="card card-tilt reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4 class="card-title">Lead Generation</h4>
+          <p class="card-text">AI-driven lead scoring and prospecting systems that fill your pipeline with qualified opportunities.</p>
+        </div>
+        <!-- Ad Generation -->
+        <div class="card card-tilt reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h4 class="card-title">Ad Generation</h4>
+          <p class="card-text">AI-powered creative generation for ads that convert — copy, visuals, and targeting optimized by machine learning.</p>
+        </div>
+        <!-- Chatbots -->
+        <div class="card card-tilt reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h4 class="card-title">AI Chatbots</h4>
+          <p class="card-text">Intelligent conversational agents that engage visitors, qualify leads, and support customers 24/7.</p>
+        </div>
+        <!-- AI Receptionists -->
+        <div class="card card-tilt reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h4 class="card-title">AI Receptionists</h4>
+          <p class="card-text">Virtual front-desk agents that handle calls, schedule appointments, and never miss a customer inquiry.</p>
+        </div>
+        <!-- AI Workflows -->
+        <div class="card card-tilt reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h4 class="card-title">AI Workflows</h4>
+          <p class="card-text">Custom automated workflows that connect your tools, eliminate manual tasks, and accelerate operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT PREVIEW ===== -->
+  <section id="about-preview">
+    <div class="container">
+      <div class="about-story">
+        <div class="about-story-text reveal-left">
+          <div class="section-subtitle">Who We Are</div>
+          <h2>Building the Future of <span class="text-gradient">Business Intelligence</span></h2>
+          <p>Athera is a next-generation AI agency built by engineers and strategists who believe that artificial intelligence should be accessible, powerful, and actionable for every business.</p>
+          <p>We don't just deploy AI — we architect intelligent systems that integrate seamlessly into your operations, driving measurable growth from day one.</p>
+          <div style="margin-top: 24px;">
+            <a href="about.html" class="btn btn-outline">
+              <span>Learn More</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="about-image reveal-right" data-parallax="0.1">
+          <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;">
+            <svg width="180" height="180" viewBox="0 0 24 24" fill="none" stroke="var(--rose-gold)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="float" style="opacity:0.4;">
+              <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section id="stats" style="padding: 80px 0;position:relative;">
+    <div class="section-orb bg-orb" style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(183,110,121,0.06),transparent 70%);top:-100px;left:-200px;pointer-events:none;"></div>
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <div class="stat-number" data-counter="150" data-suffix="+">0</div>
+          <div class="stat-label">Clients Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-counter="500" data-suffix="+">0</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-counter="98" data-suffix="%">0</div>
+          <div class="stat-label">Client Retention</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-counter="10" data-suffix="M+">0</div>
+          <div class="stat-label">Leads Generated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials" style="position:relative;">
+    <div class="section-orb bg-orb" style="position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(183,110,121,0.07),transparent 70%);bottom:0;right:-100px;pointer-events:none;"></div>
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-subtitle">Testimonials</div>
+        <h2>What Our <span class="text-gradient">Clients Say</span></h2>
+      </div>
+    </div>
+    <div class="testimonial-track">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Athera's AI chatbot increased our lead conversion by 340%. Their team understood our needs instantly and delivered beyond expectations."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JR</div>
+          <div class="testimonial-info">
+            <h5>James Rivera</h5>
+            <p>CEO, TechScale Solutions</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The AI receptionist has been a game-changer. We never miss a call and our booking rate went up 200% in the first month."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SK</div>
+          <div class="testimonial-info">
+            <h5>Sarah Kim</h5>
+            <p>Founder, Luxe Dental Group</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Their workflow automation saved us 40+ hours per week. Athera doesn't just build AI — they build competitive advantages."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MP</div>
+          <div class="testimonial-info">
+            <h5>Marcus Patel</h5>
+            <p>COO, Velocity Commerce</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The ad generation system they built cut our cost-per-acquisition by 60%. ROI was visible within the first two weeks."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AL</div>
+          <div class="testimonial-info">
+            <h5>Ava Liu</h5>
+            <p>Marketing Director, NovaBrand</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Athera's lead gen AI found us 3x more qualified prospects than our entire sales team combined. Absolutely phenomenal."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DW</div>
+          <div class="testimonial-info">
+            <h5>David Wu</h5>
+            <p>VP Sales, Quantum Dynamics</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <div class="cta-box reveal-scale">
+        <div class="section-subtitle">Ready to Transform?</div>
+        <h2>Let's Build Your <span class="text-gradient">AI Advantage</span></h2>
+        <p>Schedule a free strategy call and discover how Athera can automate, optimize, and scale your business.</p>
+        <a href="mailto:siddarthb078@gmail.com?subject=Book%20a%20Call%20-%20Athera" class="btn btn-primary btn-glow btn-magnetic">
+          <span>Book a Call</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
+          <p>Intelligence at Work. We build AI solutions that drive real business results — from chatbots to full workflow automation.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html">Lead Generation</a></li>
+            <li><a href="services.html">Ad Generation</a></li>
+            <li><a href="services.html">AI Chatbots</a></li>
+            <li><a href="services.html">AI Receptionists</a></li>
+            <li><a href="services.html">AI Workflows</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
+            <li><a href="contact.html">Book a Call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Athera. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="particles-config.js"></script>
+  <script src="nav.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>

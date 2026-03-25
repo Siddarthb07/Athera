@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Athera — A next-generation AI agency building intelligent systems that transform business operations. Meet our team and discover our story.">
+  <title>About — Athera</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
+</head>
+<body>
+  <div class="page-transition"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn btn-primary btn-glow nav-cta"><span>Book a Call</span></a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero" style="position:relative;overflow:hidden;">
+    <div class="hero-particles" id="heroParticles" style="position:absolute;inset:0;z-index:0;"></div>
+    <div class="hero-gradient hero-gradient-1" style="position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(120px);opacity:0.12;top:-200px;right:-100px;background:var(--rose-gold);"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="section-subtitle">About Athera</div>
+      <h1>The Minds Behind <span class="text-gradient">the Intelligence</span></h1>
+      <p>We are engineers, strategists, and visionaries building the AI infrastructure that powers the next generation of business.</p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section>
+    <div class="container">
+      <div class="about-story">
+        <div class="about-story-text reveal-left">
+          <div class="section-subtitle">Our Story</div>
+          <h2>Born From a <span class="text-gradient">Simple Belief</span></h2>
+          <p>Athera was founded on a conviction: that AI should not be a luxury reserved for enterprise giants. Every business — from ambitious startups to scaling mid-market companies — deserves access to the same intelligent systems that drive the world's most successful brands.</p>
+          <p>We started with a small team of AI engineers who were frustrated by the gap between what AI could do and what businesses were actually using. So we bridged it.</p>
+          <p>Today, Athera is a full-service AI agency that designs, builds, and deploys intelligent systems across lead generation, advertising, customer engagement, and operations — making the future of business accessible right now.</p>
+        </div>
+        <div class="about-image reveal-right" data-parallax="0.1">
+          <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:20px;">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--rose-gold)" stroke-width="0.5" class="float" style="opacity:0.5;">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+            <span style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--rose-gold);letter-spacing:4px;">SINCE 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission / Vision / Values -->
+  <section>
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-subtitle">What Drives Us</div>
+        <h2>Mission, Vision &amp; <span class="text-gradient">Values</span></h2>
+      </div>
+      <div class="values-grid stagger">
+        <div class="card card-tilt reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <h4 class="card-title">Our Mission</h4>
+          <p class="card-text">To democratize artificial intelligence by making powerful, enterprise-grade AI solutions accessible and actionable for businesses of every size.</p>
+        </div>
+        <div class="card card-tilt reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h4 class="card-title">Our Vision</h4>
+          <p class="card-text">A world where every business operates with intelligent automation at its core — where AI handles the repetitive so humans can focus on the extraordinary.</p>
+        </div>
+        <div class="card card-tilt reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4 class="card-title">Our Values</h4>
+          <p class="card-text">Precision engineering, transparent partnership, relentless innovation, and results that speak louder than promises. We deliver outcomes, not output.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section>
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-subtitle">The Team</div>
+        <h2>Meet the <span class="text-gradient">Architects</span></h2>
+        <p class="section-description">A curated team of AI engineers, growth strategists, and product designers building the future of intelligent business.</p>
+      </div>
+      <div class="team-grid stagger" style="grid-template-columns: repeat(2, 1fr); max-width: 600px; margin: 0 auto;">
+        <div class="team-card reveal">
+          <div class="team-avatar">SB</div>
+          <h4>Siddarth B</h4>
+          <p>Founder</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">AS</div>
+          <h4>Ariv S</h4>
+          <p>Co-Founder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section>
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-subtitle">Our Journey</div>
+        <h2>Milestones &amp; <span class="text-gradient">Moments</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2023</div>
+          <h4>Athera Founded</h4>
+          <p>Started with a vision to make AI accessible. Launched our first chatbot product and signed our first 10 clients within three months.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2024</div>
+          <h4>Scale &amp; Expand</h4>
+          <p>Expanded service offerings to include lead generation, ad generation, and AI receptionists. Crossed 100+ active clients and built out a world-class engineering team.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2025</div>
+          <h4>AI Workflows Launch</h4>
+          <p>Introduced our custom AI workflow automation platform, enabling end-to-end business process automation. Reached 500+ projects delivered milestone.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2026</div>
+          <h4>The Future</h4>
+          <p>Building the next generation of agentic AI systems. Expanding globally and pushing the boundaries of what's possible with intelligent automation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal-scale">
+        <div class="section-subtitle">Join Us</div>
+        <h2>Let's Build <span class="text-gradient">Together</span></h2>
+        <p>Want to be part of the AI revolution? Partner with Athera and let's create something extraordinary.</p>
+        <a href="mailto:siddarthb078@gmail.com?subject=Partnership%20Inquiry%20-%20Athera" class="btn btn-primary btn-glow btn-magnetic">
+          <span>Book a Call</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
+          <p>Intelligence at Work. We build AI solutions that drive real business results.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html">Lead Generation</a></li>
+            <li><a href="services.html">Ad Generation</a></li>
+            <li><a href="services.html">AI Chatbots</a></li>
+            <li><a href="services.html">AI Receptionists</a></li>
+            <li><a href="services.html">AI Workflows</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
+            <li><a href="contact.html">Book a Call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Athera. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="particles-config.js"></script>
+  <script src="nav.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
