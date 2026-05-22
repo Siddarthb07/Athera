@@ -9,6 +9,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
+  <style>
+    #services .stats-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @media (max-width: 1024px) {
+      #services .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      #services .stats-grid { grid-template-columns: repeat(1, 1fr); }
+    }
+  </style>
 </head>
 <body>
   <!-- Loading Screen -->
@@ -76,7 +87,7 @@
         <h2>AI Solutions That <span class="text-gradient">Deliver Results</span></h2>
         <p class="section-description">End-to-end AI services designed to automate, optimize, and scale your business operations.</p>
       </div>
-      <div class="stats-grid stagger" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="stats-grid stagger">
         <!-- Lead Generation -->
         <div class="card card-tilt reveal">
           <div class="card-icon">
