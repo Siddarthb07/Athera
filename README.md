@@ -8,11 +8,6 @@
 
 Static marketing site (HTML/CSS/JS) deployed via GitHub Pages with a custom domain. This is the public-facing brand site for Athera — not the application backend.
 
-## Product line
-
-- **Athera** — agency brand and services (this repo)
-- **[Elevyx](https://github.com/Siddarthb07/Elevyx)** — lead-recovery automation product line for real-estate teams ([elevyx.in](https://elevyx.in))
-
 ## Stack
 
 - HTML5, CSS3, vanilla JavaScript
