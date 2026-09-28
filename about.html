@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav" id="navbar">
@@ -37,44 +39,35 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow rise">About</span>
-        <h1 class="rise rise-2">Behind the <span class="accent">Intelligence</span></h1>
-        <p class="lede rise rise-3">Athera is a founder-led AI agency building the practical AI systems that power the next generation of business.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container split">
-        <div>
-          <span class="eyebrow">Our Story</span>
-          <h2>Born From a <span class="accent">Simple Belief</span></h2>
-        </div>
-        <div class="split-copy">
-          <p>Athera was founded on a conviction: AI should not be a luxury reserved for enterprise giants. Every business, from ambitious startups to growing local companies, deserves access to the same intelligent systems that drive the world's most successful brands.</p>
-          <p>Athera started when its founder got frustrated by the gap between what AI could do and what businesses were actually using, and set out to bridge it.</p>
-          <p>Today, Athera designs, builds, and deploys intelligent systems across lead generation, advertising, customer engagement, and operations, making the future of business accessible right now.</p>
-        </div>
+        <h1 class="rise rise-2">The founder builds it.</h1>
+        <p class="lede rise rise-3">Athera is Siddarth Boggarapu’s practice in Bangalore. One person from the first call to handover.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Values</span>
-          <h2>Mission, Vision and Values</h2>
-        </div>
-        <div class="mvv">
-          <article class="mvv-item">
-            <h3>Our Mission</h3>
-            <p>To democratize artificial intelligence by making powerful, well-built AI solutions accessible and actionable for businesses of every size.</p>
+        <article class="panel">
+          <h2>Why it exists</h2>
+          <p>Most of the AI a small business is shown is a demonstration. The inbox, the WhatsApp thread, and the follow-up are still done by hand the next morning.</p>
+          <p>Athera exists to replace one of those jobs with a system the owner can actually use. If it needs a slide to explain the value, it is the wrong project.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel-grid">
+          <article class="panel">
+            <h2>What we take on</h2>
+            <p>A repeated task with a clear owner: leads, replies, bookings, or the path between tools you already pay for.</p>
           </article>
-          <article class="mvv-item">
-            <h3>Our Vision</h3>
-            <p>A world where every business operates with intelligent automation at its core, where AI handles the repetitive so people can focus on the extraordinary.</p>
+          <article class="panel">
+            <h2>How it ships</h2>
+            <p>In your sheet, your mailbox, your site, or WhatsApp. Not in a login you will open once.</p>
           </article>
-          <article class="mvv-item">
-            <h3>Our Values</h3>
-            <p>Precision engineering, transparent partnership, relentless innovation, and results that speak louder than promises. We deliver outcomes, not output.</p>
+          <article class="panel">
+            <h2>What we will not claim</h2>
+            <p>A percentage we did not measure, a client we cannot name, or a team that is not in the room.</p>
           </article>
         </div>
       </div>
@@ -101,8 +94,8 @@
 
     <section class="cta">
       <div class="container">
-        <h2>Let's Build <span class="accent">Together</span></h2>
-        <p>Want to be part of the AI revolution? Partner with Athera and let's create something extraordinary.</p>
+        <h2>Work with the founder.</h2>
+        <p>One call. A clear scope after it.</p>
         <a class="btn btn-primary" href="contact.html">Book a Call</a>
       </div>
     </section>
@@ -151,6 +144,15 @@
     </div>
   </footer>
 
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="scene.js"></script>
   <script src="site.js" defer></script>
 </body>
 </html>

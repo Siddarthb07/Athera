@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav" id="navbar">
@@ -37,9 +39,8 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow rise">Portfolio</span>
-        <h1 class="rise rise-2">Selected <span class="accent">Work</span></h1>
-        <p class="lede rise rise-3">A short list of real projects. Client names stay private unless a client asks to be named.</p>
+        <h1 class="rise rise-2">Selected work</h1>
+        <p class="lede rise rise-3">Three projects. Names stay private unless a client asks.</p>
       </div>
     </section>
 
@@ -70,8 +71,8 @@
 
     <section class="cta">
       <div class="container">
-        <h2>Let's Create Your<br> <span class="accent">Success Story</span></h2>
-        <p>Let's talk about what AI can do for your business.</p>
+        <h2>Next project.</h2>
+        <p>Tell us what should stop being manual.</p>
         <a class="btn btn-primary" href="contact.html">Book a Call</a>
       </div>
     </section>
@@ -120,6 +121,15 @@
     </div>
   </footer>
 
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="scene.js"></script>
   <script src="site.js" defer></script>
 </body>
 </html>

@@ -4,20 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Athera | Intelligence at Work</title>
-  <meta name="description" content="Athera builds AI systems for businesses: lead generation, ad generation, AI chatbots, AI receptionists, and custom AI workflows.">
+  <meta name="description" content="Athera designs and builds AI systems for businesses in Bangalore: leads, ads, chat, reception, and the workflows between them.">
   <link rel="canonical" href="https://athera.digital/">
   <meta property="og:title" content="Athera | Intelligence at Work">
-  <meta property="og:description" content="AI systems for businesses: lead generation, ad generation, chatbots, receptionists, and custom workflows.">
+  <meta property="og:description" content="Founder-led AI systems for businesses. Bangalore.">
   <meta property="og:url" content="https://athera.digital/">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0A0A0A">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A0A0A'/><circle cx='32' cy='32' r='9' fill='%23B76E79'/></svg>">
+  <meta name="theme-color" content="#07060B">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2307060B'/><rect x='18' y='26' width='28' height='4' rx='1' fill='%23C6A36A'/><rect x='22' y='34' width='20' height='3' rx='1' fill='%23E4D2B0'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
 
   <header class="nav" id="navbar">
     <div class="container nav-inner">
@@ -27,88 +37,234 @@
           <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="portfolio.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="nav-cta" href="contact.html">Book a Call</a>
+        <a class="nav-cta" href="contact.html">Book a call</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span></button>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero">
+  <main id="main" data-story>
+    <section class="hero-stage">
       <div class="container">
-        <span class="eyebrow rise">AI-Powered Growth Agency</span>
-        <h1 class="rise rise-2">Intelligence<br> at <span class="accent">Work</span></h1>
-        <p class="lede rise rise-3">We build AI systems that transform how businesses operate, from intelligent chatbots to automated lead generation. Your growth, engineered.</p>
-        <div class="hero-actions rise rise-4">
-          <a class="btn btn-primary" href="contact.html">Book a Call</a>
-          <a class="btn btn-ghost" href="services.html">Our Services</a>
+        <p class="kicker">Founder-led · Bangalore</p>
+        <h1>Intelligence<br><span class="accent">at work</span></h1>
+        <p class="lede">Athera designs and builds private AI systems for businesses that are finished watching demos. Lead capture, advertising, conversation, a front desk, and the workflows that join them.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="contact.html">Book a call</a>
+          <a class="btn btn-ghost" href="services.html">View the practice</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Services</span>
-          <h2>AI Solutions That <span class="accent">Deliver Results</span></h2>
-          <p>End-to-end AI services designed to automate, optimize, and scale your business operations.</p>
+    <div class="sheet">
+      <section class="section" id="practice">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">The practice</p>
+            <h2>Five systems. Built around the business you already run.</h2>
+            <p>We do not sell a platform and leave you to configure it. Each engagement is one system, scoped in writing, and handed over in the tools your team opens every day.</p>
+          </div>
+          <div class="offer">
+            <article id="lead-generation">
+              <p class="offer-index">01</p>
+              <div>
+                <h3>Lead generation</h3>
+                <p>Inquiries are read, scored, and placed in front of the person who should answer. Built for the channels you already have, including WhatsApp, so a lead does not sit in a chat until it goes cold.</p>
+                <p>You keep the relationship. The system only decides which message deserves a human first.</p>
+              </div>
+            </article>
+            <article id="ad-generation">
+              <p class="offer-index">02</p>
+              <div>
+                <h3>Ad generation</h3>
+                <p>Copy and creative drafted from the offer you actually sell, in variations you can run. We will not print a return figure we did not measure on your account.</p>
+                <p>The drafts are yours to approve. Nothing is published because a model preferred a line.</p>
+              </div>
+            </article>
+            <article id="ai-chatbots">
+              <p class="offer-index">03</p>
+              <div>
+                <h3>Conversation</h3>
+                <p>A chat on your site or WhatsApp that answers the questions you hear every week, and passes anything uncertain to a person. The point is a reply, not a bot that improvises.</p>
+                <p>If it does not know, it says so and hands the thread over. That refusal is part of the build.</p>
+              </div>
+            </article>
+            <article id="ai-receptionists">
+              <p class="offer-index">04</p>
+              <div>
+                <h3>Reception</h3>
+                <p>A front desk that picks up, books the appointment, and routes the calls it should not decide. Your calendar stays the source of truth.</p>
+                <p>Hours, services, and who should be interrupted are written down before it ever answers.</p>
+              </div>
+            </article>
+            <article id="ai-workflows">
+              <p class="offer-index">05</p>
+              <div>
+                <h3>Workflows</h3>
+                <p>The path between the tools you already pay for. A sheet, a mailbox, a calendar, connected so the same follow-up is not typed twice.</p>
+                <p>Athera’s own outreach runs this way: the relationship lives in Google Sheets, and the next email is drafted in Gmail.</p>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="service-grid">
-          <article class="service-item">
-            <h3>Lead Generation</h3>
-            <p>AI-driven lead scoring and prospecting systems that fill your pipeline with qualified opportunities.</p>
-          </article>
-          <article class="service-item">
-            <h3>Ad Generation</h3>
-            <p>AI-powered creative generation for ads that convert: copy, visuals, and targeting optimized by machine learning.</p>
-          </article>
-          <article class="service-item">
-            <h3>AI Chatbots</h3>
-            <p>Intelligent conversational agents that engage visitors, qualify leads, and support customers 24/7.</p>
-          </article>
-          <article class="service-item">
-            <h3>AI Receptionists</h3>
-            <p>Virtual front-desk agents that handle calls, schedule appointments, and never miss a customer inquiry.</p>
-          </article>
-          <article class="service-item">
-            <h3>AI Workflows</h3>
-            <p>Custom automated workflows that connect your tools, eliminate manual tasks, and accelerate operations.</p>
-          </article>
-          <article class="service-item">
-            <h3>Not sure where to start?</h3>
-            <p>Tell us how your business runs today and we'll suggest the one system worth building first.</p>
-            <a class="text-link service-link" href="contact.html">Book a free strategy call</a>
-          </article>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="about-preview">
-      <div class="container split">
-        <div>
-          <span class="eyebrow">About Athera</span>
-          <h2>Building the Future of <span class="accent">Business Intelligence</span></h2>
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">Engagement</p>
+            <h2>How a project actually runs.</h2>
+          </div>
+          <div class="offer">
+            <article>
+              <p class="offer-index">01</p>
+              <div>
+                <h3>A call, then a recommendation</h3>
+                <p>We learn how the work happens today. You leave with one system worth building first, not a menu of everything AI can theoretically do.</p>
+              </div>
+            </article>
+            <article>
+              <p class="offer-index">02</p>
+              <div>
+                <h3>Scope and price, in writing</h3>
+                <p>Nothing starts until the job, the boundary, and the fee are clear. If a request would need a claim we cannot stand behind, we say so before the build.</p>
+              </div>
+            </article>
+            <article>
+              <p class="offer-index">03</p>
+              <div>
+                <h3>Handover to the founder</h3>
+                <p>Siddarth Boggarapu scopes, builds, and supports the work. After handover you are not writing to a queue. You are writing to the person who made it.</p>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="split-copy">
-          <p>Athera is a founder-led AI agency built on a simple belief: artificial intelligence should be accessible, powerful, and actionable for every business.</p>
-          <p>We don't just deploy AI. We architect intelligent systems that integrate seamlessly into your operations.</p>
-          <a class="text-link" href="about.html">Learn More</a>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="cta">
-      <div class="container">
-        <h2>Let's Build Your<br> <span class="accent">AI Advantage</span></h2>
-        <p>Schedule a free strategy call and discover how Athera can automate, optimize, and scale your business.</p>
-        <a class="btn btn-primary" href="contact.html">Book a Call</a>
-      </div>
-    </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">Who it is for</p>
+            <h2>Owner-run businesses, not a department with a lab.</h2>
+            <p>The fit is a company where the owner, or a very small team, still feels the missed lead. A clinic, a studio, a local service, a firm that answers on WhatsApp. If the work is already a staffed operations team with its own software group, you do not need Athera.</p>
+          </div>
+          <div class="offer">
+            <article>
+              <p class="offer-index">01</p>
+              <div>
+                <h3>One job, named</h3>
+                <p>We start from a task someone does every day: reply, book, follow up, or draft. If the task cannot be pointed at, the project does not start.</p>
+              </div>
+            </article>
+            <article>
+              <p class="offer-index">02</p>
+              <div>
+                <h3>Tools you already open</h3>
+                <p>The site, WhatsApp, Google Sheets, Gmail, a calendar. The system is installed there. There is no second login whose only purpose is to look at Athera.</p>
+              </div>
+            </article>
+            <article>
+              <p class="offer-index">03</p>
+              <div>
+                <h3>A person at the end of it</h3>
+                <p>Siddarth Boggarapu is the person who scopes it and the person who answers after it ships. Bangalore. You write to siddarthb078@gmail.com, not to a shared inbox with no name.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">Handover</p>
+            <h2>What you actually receive.</h2>
+            <p>A finished engagement is a running system plus a short written note. The note says what it will do, what it will refuse, and how to reach the founder if it misbehaves.</p>
+          </div>
+          <div class="offer">
+            <article>
+              <p class="offer-index">01</p>
+              <div>
+                <h3>The system, in place</h3>
+                <p>Not a slide and not a login to a demo. The chat is on your site or WhatsApp. The leads land where you already look. The draft is in the mailbox you send from.</p>
+              </div>
+            </article>
+            <article>
+              <p class="offer-index">02</p>
+              <div>
+                <h3>The boundary, in writing</h3>
+                <p>What the system is allowed to decide, and what must wait for a person. That boundary is part of the delivery, because a confident wrong answer is worse than a delay.</p>
+              </div>
+            </article>
+            <article>
+              <p class="offer-index">03</p>
+              <div>
+                <h3>Time, quoted per job</h3>
+                <p>A narrow chat can be short. A workflow that touches several tools takes longer. The duration is in the scope, before work starts. There is no standing promise of “live in a week” for every job.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="kicker">Selected work</p>
+            <h2>What is real, and what is still being built.</h2>
+            <p>Client names stay private unless a client asks to be named. We would rather show a short list than invent a case study.</p>
+          </div>
+          <div class="work-grid">
+            <article class="work-card">
+              <span class="work-status">Live</span>
+              <h2>Websites for two small businesses</h2>
+              <p>Designed and built both sites, including the inquiry path. A WhatsApp lead goes to the owner, not into a form that nobody checks.</p>
+              <p class="work-type">Websites and lead capture</p>
+            </article>
+            <article class="work-card">
+              <span class="work-status">In progress</span>
+              <h2>Assistant for an HR team</h2>
+              <p>An internal assistant for one company’s HR team. It is being built for their questions and their documents. It is not a public demo.</p>
+              <p class="work-type">Private workflow</p>
+            </article>
+            <article class="work-card">
+              <span class="work-status">Built</span>
+              <h2>Athera outreach</h2>
+              <p>Our own system, used on our own pipeline. A Google Sheets record of the relationship, and a draft of the next email waiting in Gmail.</p>
+              <p class="work-type">Sheets and Gmail</p>
+            </article>
+          </div>
+          <p class="section-more"><a class="text-link" href="portfolio.html">Read the work</a></p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split">
+          <div>
+            <p class="kicker">The studio</p>
+            <h2>A practice, not a department.</h2>
+          </div>
+          <div class="split-copy">
+            <p>Athera is the company Siddarth Boggarapu runs from Bangalore. The work is practical: remove a repeated task, catch a lead, answer a question the business already knows the answer to.</p>
+            <p>There is no bench of account managers between you and the build. If the system is not useful in the week it ships, it is not finished.</p>
+            <a class="text-link" href="about.html">About the founder</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container">
+          <h2>Tell us which job should go first.</h2>
+          <p>A short call. A written scope after it, before any fee is due for the build.</p>
+          <a class="btn btn-primary" href="contact.html">Book a call</a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="footer">
@@ -116,7 +272,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>ATHERA</a>
-          <p>Intelligence at Work. We build AI solutions for real business problems, from chatbots to full workflow automation.</p>
+          <p>Intelligence at work. Founder-led AI systems for businesses, from Bangalore.</p>
         </div>
         <div>
           <p class="footer-title">Pages</p>
@@ -124,25 +280,25 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="portfolio.html">Work</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
           <p class="footer-title">Services</p>
           <ul>
-            <li><a href="services.html#lead-generation">Lead Generation</a></li>
-            <li><a href="services.html#ad-generation">Ad Generation</a></li>
-            <li><a href="services.html#ai-chatbots">AI Chatbots</a></li>
-            <li><a href="services.html#ai-receptionists">AI Receptionists</a></li>
-            <li><a href="services.html#ai-workflows">AI Workflows</a></li>
+            <li><a href="services.html#lead-generation">Lead generation</a></li>
+            <li><a href="services.html#ad-generation">Ad generation</a></li>
+            <li><a href="services.html#ai-chatbots">Conversation</a></li>
+            <li><a href="services.html#ai-receptionists">Reception</a></li>
+            <li><a href="services.html#ai-workflows">Workflows</a></li>
           </ul>
         </div>
         <div>
           <p class="footer-title">Contact</p>
           <ul>
             <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
-            <li><a href="contact.html">Book a Call</a></li>
+            <li><a href="contact.html">Book a call</a></li>
             <li>Bangalore, India</li>
           </ul>
         </div>
@@ -154,6 +310,7 @@
     </div>
   </footer>
 
+  <script type="module" src="scene.js"></script>
   <script src="site.js" defer></script>
 </body>
 </html>

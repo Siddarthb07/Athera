@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav" id="navbar">
@@ -37,17 +39,15 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow rise">Contact</span>
-        <h1 class="rise rise-2">Let's Start <span class="accent">Building</span></h1>
-        <p class="lede rise rise-3">Ready to transform your business with AI? Book a free strategy call or send a message. We'd love to hear from you.</p>
+        <h1 class="rise rise-2">Write to us.</h1>
+        <p class="lede rise rise-3">A reply within a day.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container contact-grid">
         <div>
-          <h2>Send a Message</h2>
-          <p>Fill out the form and we'll get back to you within 24 hours.</p>
+          <h2>Message</h2>
           <form class="form" id="contactForm">
             <div class="field-row">
               <div class="field">
@@ -89,8 +89,7 @@
         </div>
 
         <aside>
-          <h2>Or, Book a Call Directly</h2>
-          <p>Prefer to talk? Schedule a free 30-minute strategy call.</p>
+          <h2>Or book a call</h2>
           <ul class="info-list">
             <li>
               <span class="info-label">Strategy call</span>
@@ -182,6 +181,15 @@
     </div>
   </footer>
 
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="scene.js"></script>
   <script src="site.js" defer></script>
 </body>
 </html>

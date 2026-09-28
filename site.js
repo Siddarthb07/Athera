@@ -1,15 +1,40 @@
 const nav = document.getElementById('navbar');
 const toggle = document.querySelector('.nav-toggle');
 
-const syncNav = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
-syncNav();
-window.addEventListener('scroll', syncNav, { passive: true });
+const syncNav = () => nav && nav.classList.toggle('is-scrolled', window.scrollY > 8);
+if (nav) {
+  syncNav();
+  window.addEventListener('scroll', syncNav, { passive: true });
+}
 
-if (toggle) {
+if (toggle && nav) {
+  toggle.addEventListener('pointerdown', () => {
+    toggle.style.transform = 'scale(0.97)';
+  });
+  const release = () => {
+    toggle.style.transform = '';
+  };
+  toggle.addEventListener('pointerup', release);
+  toggle.addEventListener('pointercancel', release);
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', String(open));
   });
+}
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealNodes = document.querySelectorAll('.offer article, .work-card, .section-head');
+
+if (!reduceMotion && revealNodes.length) {
+  revealNodes.forEach((node) => node.classList.add('reveal'));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.18 });
+  revealNodes.forEach((node) => observer.observe(node));
 }
 
 const form = document.getElementById('contactForm');

@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav" id="navbar">
@@ -37,90 +39,42 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow rise">Services</span>
-        <h1 class="rise rise-2">AI Solutions That <span class="accent">Scale</span></h1>
-        <p class="lede rise rise-3">From lead generation to full workflow automation, we build intelligent systems that transform your operations and accelerate growth.</p>
+        <h1 class="rise rise-2">The practice</h1>
+        <p class="lede rise rise-3">Five systems. Each one is scoped on its own, then built into the tools the business already uses.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <article class="service-row" id="lead-generation">
-          <div>
-            <span class="eyebrow">Lead Generation</span>
-            <h2>AI-Powered Lead Generation</h2>
-            <p>Our intelligent lead generation system uses machine learning to identify, score, and nurture high-value prospects, delivering qualified leads directly to your sales pipeline without the manual hustle.</p>
-          </div>
-          <ul class="feature-list">
-            <li>Predictive lead scoring powered by AI</li>
-            <li>Multi-channel prospecting automation</li>
-            <li>CRM integration and pipeline management</li>
-            <li>Real-time analytics dashboard</li>
-          </ul>
-        </article>
-
-        <article class="service-row" id="ad-generation">
-          <div>
-            <span class="eyebrow">Ad Generation</span>
-            <h2>Intelligent Ad Generation</h2>
-            <p>Create high-converting advertisement creatives at scale. Our AI analyzes your brand, audience, and goals to generate ad copy, visuals, and targeting strategies that maximize ROI.</p>
-          </div>
-          <ul class="feature-list">
-            <li>AI-generated ad copy and creative</li>
-            <li>A/B testing automation</li>
-            <li>Audience targeting optimization</li>
-            <li>Cross-platform deployment (Meta, Google, TikTok)</li>
-          </ul>
-        </article>
-
-        <article class="service-row" id="ai-chatbots">
-          <div>
-            <span class="eyebrow">AI Chatbots</span>
-            <h2>Conversational AI Chatbots</h2>
-            <p>Deploy intelligent chatbots that understand context, handle complex queries, and deliver personalized experiences, turning visitors into customers around the clock.</p>
-          </div>
-          <ul class="feature-list">
-            <li>Natural language understanding (NLU)</li>
-            <li>Multi-language support</li>
-            <li>Seamless handoff to human agents</li>
-            <li>Website, WhatsApp and social integration</li>
-          </ul>
-        </article>
-
-        <article class="service-row" id="ai-receptionists">
-          <div>
-            <span class="eyebrow">AI Receptionists</span>
-            <h2>Virtual AI Receptionists</h2>
-            <p>Never miss a call again. Our AI receptionists handle inbound calls with human-like conversation, book appointments, answer FAQs, and route complex inquiries, 24/7/365.</p>
-          </div>
-          <ul class="feature-list">
-            <li>Human-like voice interaction</li>
-            <li>Appointment scheduling and calendar sync</li>
-            <li>Intelligent call routing and escalation</li>
-            <li>Call analytics and transcription</li>
-          </ul>
-        </article>
-
-        <article class="service-row" id="ai-workflows">
-          <div>
-            <span class="eyebrow">AI Workflows</span>
-            <h2>Custom AI Workflows</h2>
-            <p>Streamline your entire operation with custom AI-powered workflows. We connect your tools, automate repetitive tasks, and build intelligent pipelines that scale with your business.</p>
-          </div>
-          <ul class="feature-list">
-            <li>Custom automation pipelines</li>
-            <li>API and third-party tool integration</li>
-            <li>Data processing and ETL automation</li>
-            <li>Real-time monitoring and alerts</li>
-          </ul>
-        </article>
+        <div class="panel-grid">
+          <article class="panel" id="lead-generation">
+            <h2>Lead generation</h2>
+            <p>Inquiries are read, scored, and sent to the person who should reply. WhatsApp included, so a lead is not left in a chat overnight.</p>
+          </article>
+          <article class="panel" id="ad-generation">
+            <h2>Ad generation</h2>
+            <p>Copy and creative from the offer you sell, in variations you can run. No performance number we did not measure.</p>
+          </article>
+          <article class="panel" id="ai-chatbots">
+            <h2>Conversation</h2>
+            <p>Site and WhatsApp replies for the questions you already answer by hand. Anything uncertain goes to a person.</p>
+          </article>
+          <article class="panel" id="ai-receptionists">
+            <h2>Reception</h2>
+            <p>Picks up, books the time, and routes the calls it should not decide. Your calendar stays in charge.</p>
+          </article>
+          <article class="panel" id="ai-workflows">
+            <h2>Workflows</h2>
+            <p>Sheets, mail, and calendars joined so a follow-up is drafted once and not retyped.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="cta">
       <div class="container">
-        <h2>Ready to <span class="accent">Automate</span>?</h2>
-        <p>Let's discuss which AI solution fits your business. Book a free strategy call today.</p>
+        <h2>Start with one.</h2>
+        <p>Tell us which job should go first.</p>
         <a class="btn btn-primary" href="contact.html">Book a Call</a>
       </div>
     </section>
@@ -169,6 +123,15 @@
     </div>
   </footer>
 
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="scene.js"></script>
   <script src="site.js" defer></script>
 </body>
 </html>
