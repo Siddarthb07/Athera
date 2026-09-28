@@ -102,3 +102,18 @@ if (form) {
     window.location.href = `mailto:siddarthb078@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
+
+const systems = document.querySelectorAll('.system');
+systems.forEach((item) => {
+  const button = item.querySelector('button');
+  if (!button) return;
+  button.addEventListener('click', () => {
+    const willOpen = !item.classList.contains('is-open');
+    systems.forEach((other) => {
+      const open = willOpen && other === item;
+      other.classList.toggle('is-open', open);
+      const otherButton = other.querySelector('button');
+      if (otherButton) otherButton.setAttribute('aria-expanded', String(open));
+    });
+  });
+});

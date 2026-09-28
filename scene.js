@@ -14,10 +14,10 @@ const page = document.body.dataset.page || 'home';
 
 const poses = {
   home: { x: 1.55, y: 0.05, scale: 1.18, rot: 0.35 },
-  services: { x: 1.85, y: 0.15, scale: 0.96, rot: 0.85 },
-  about: { x: 1.7, y: 0.05, scale: 1.02, rot: -0.15 },
-  work: { x: 1.6, y: -0.05, scale: 0.98, rot: 1.25 },
-  contact: { x: 2.15, y: 0.2, scale: 0.7, rot: 0.15 }
+  services: { x: 2.45, y: 0.12, scale: 0.9, rot: 0.85 },
+  about: { x: 2.35, y: 0.02, scale: 0.96, rot: -0.15 },
+  work: { x: 2.4, y: -0.06, scale: 0.92, rot: 1.15 },
+  contact: { x: 2.55, y: 0.16, scale: 0.72, rot: 0.2 }
 };
 const pose = poses[page] || poses.home;
 
@@ -40,10 +40,12 @@ scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnviron
 const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 40);
 camera.position.set(0, 0.1, 8.4);
 
+const inner = page !== 'home';
 const uniforms = {
   uTime: { value: 0.8 },
   uScroll: { value: 0 },
-  uPointer: { value: new THREE.Vector2() }
+  uPointer: { value: new THREE.Vector2() },
+  uCalm: { value: inner ? 0.22 : 1 }
 };
 
 const bg = new THREE.Mesh(
@@ -148,13 +150,14 @@ const ribbonMat = new THREE.ShaderMaterial({
   vertexShader: `
     uniform float uTime;
     uniform float uScroll;
+    uniform float uCalm;
     uniform vec2 uPointer;
     varying vec3 vNormal;
     varying vec3 vView;
     varying float vAlong;
     void main() {
       float along = uv.x;
-      float wave = sin(along * 28.0 + uTime * 1.8 + uPointer.x * 2.0) * (0.07 + uScroll * 0.42);
+      float wave = sin(along * 28.0 + uTime * 1.8 + uPointer.x * 2.0) * (0.07 + uScroll * 0.42) * uCalm;
       vec3 pos = position + normal * wave;
       vec4 mv = modelViewMatrix * vec4(pos, 1.0);
       vNormal = normalize(normalMatrix * normal);
@@ -226,6 +229,48 @@ const signals = [];
 });
 
 scene.add(braidGroup);
+braidGroup.visible = !inner;
+
+function linkCurve(tilt, rx, ry) {
+  const points = [];
+  const steps = 96;
+  for (let i = 0; i <= steps; i += 1) {
+    const a = (i / steps) * Math.PI * 2;
+    const x = Math.cos(a) * rx;
+    const y = Math.sin(a) * ry;
+    points.push(new THREE.Vector3(
+      x * Math.cos(tilt),
+      y,
+      x * Math.sin(tilt)
+    ));
+  }
+  return new THREE.CatmullRomCurve3(points, true);
+}
+
+const clasp = new THREE.Group();
+[
+  [0.15, 1.05, 0.62, 0.045],
+  [1.2, 0.92, 0.7, 0.034],
+  [2.25, 1.18, 0.5, 0.028]
+].forEach(([tilt, rx, ry, tube]) => {
+  const curve = linkCurve(tilt, rx, ry);
+  const link = new THREE.Mesh(new THREE.TubeGeometry(curve, 140, tube, 12, true), ribbonMat);
+  link.userData.link = true;
+  link.userData.curve = curve;
+  clasp.add(link);
+});
+
+const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 2.4, 16), metal);
+clasp.add(pin);
+const claspBead = new THREE.Mesh(
+  new THREE.SphereGeometry(0.042, 20, 20),
+  new THREE.MeshBasicMaterial({ color: 0xf6f1ea, toneMapped: false })
+);
+claspBead.userData.curve = clasp.children[0].userData.curve;
+clasp.add(claspBead);
+clasp.visible = inner;
+clasp.position.set(pose.x, pose.y, 0);
+scene.add(clasp);
 
 const deck = new THREE.Group();
 [0xc6a36a, 0xe4d2b0, 0xf6f1ea].forEach((color, index) => {
@@ -244,6 +289,7 @@ const deck = new THREE.Group();
 });
 deck.position.set(pose.x, -2.15, 0.2);
 deck.rotation.x = -0.4;
+deck.visible = !inner;
 scene.add(deck);
 
 let pointerX = 0;
@@ -295,14 +341,24 @@ function apply(p, ix, iy) {
   uniforms.uScroll.value = p;
   uniforms.uPointer.value.set(ix, iy);
 
-  const orbit = p * Math.PI * 1.2;
-  const idle = reduce ? 0 : clock * 0.12;
+  const swing = inner ? 0.18 : 1;
+  const orbit = p * Math.PI * 1.2 * swing;
+  const idle = reduce ? 0 : clock * (inner ? 0.045 : 0.12);
+  const subject = inner ? clasp : braidGroup;
+  subject.position.x = wide ? pose.x + ix * 0.08 * swing : 0.15;
+  subject.position.y = pose.y + Math.sin(orbit) * 0.28 * swing - iy * 0.05 * swing;
+  subject.scale.setScalar(wide ? pose.scale + Math.sin(p * Math.PI) * 0.12 * swing : 0.58);
+  subject.rotation.y = pose.rot + idle + orbit + ix * 0.15 * swing;
+  subject.rotation.x = (inner ? 0.08 : -0.22) + Math.sin(orbit * 0.5) * 0.28 * swing - iy * 0.08 * swing;
+  subject.rotation.z = Math.sin(orbit) * 0.12 * swing;
+  if (!inner) {
   braidGroup.position.x = wide ? pose.x + ix * 0.18 : 0.15;
   braidGroup.position.y = pose.y + Math.sin(orbit) * 0.28 - iy * 0.12;
   braidGroup.scale.setScalar(wide ? pose.scale + Math.sin(p * Math.PI) * 0.12 : 0.58);
   braidGroup.rotation.y = pose.rot + idle + orbit + ix * 0.4;
-  braidGroup.rotation.x = -0.22 + Math.sin(orbit * 0.5) * 0.28 - iy * 0.2;
-  braidGroup.rotation.z = Math.sin(orbit) * 0.12;
+  braidGroup.rotation.x = -0.22 + Math.sin(p * Math.PI * 1.2 * 0.5) * 0.28 - iy * 0.2;
+  braidGroup.rotation.z = Math.sin(p * Math.PI * 1.2) * 0.12;
+  }
 
   braidGroup.children.forEach((child, index) => {
     if (child.userData.strand) {
@@ -325,6 +381,11 @@ function apply(p, ix, iy) {
     bead.scale.setScalar(reduce ? 1 : pulse);
   });
 
+  if (inner) {
+    const t = reduce ? 0.2 : (clock * 0.02) % 1;
+    claspBead.position.copy(claspBead.userData.curve.getPointAt(t));
+  }
+
   const open = page === 'work' ? 0.7 + p * 0.4 : Math.sin(p * Math.PI);
   deck.position.set(
     wide ? pose.x + 0.2 : 0,
@@ -338,10 +399,15 @@ function apply(p, ix, iy) {
     card.rotation.y = side * open * 0.28;
   });
 
-  camera.position.x = Math.sin(orbit * 0.5) * 0.35 + ix * 0.2;
-  camera.position.y = 0.12 + Math.sin(p * Math.PI) * 0.35;
-  camera.position.z = 8.5 - Math.sin(p * Math.PI) * 1.1;
-  camera.lookAt(wide ? 0.35 : 0, braidGroup.position.y * 0.25, 0);
+  if (inner) {
+    camera.position.set(ix * 0.04, 0.1, 8.7);
+    camera.lookAt(0.15, clasp.position.y * 0.1, 0);
+  } else {
+    camera.position.x = Math.sin(orbit * 0.5) * 0.35 + ix * 0.2;
+    camera.position.y = 0.12 + Math.sin(p * Math.PI) * 0.35;
+    camera.position.z = 8.5 - Math.sin(p * Math.PI) * 1.1;
+    camera.lookAt(wide ? 0.35 : 0, braidGroup.position.y * 0.25, 0);
+  }
 
   if (story) showCopy(p < 0.26 ? 0 : p < 0.52 ? 1 : p < 0.76 ? 2 : 3);
   document.documentElement.style.setProperty('--scroll-p', p.toFixed(4));
@@ -352,7 +418,7 @@ function tick() {
   progress += (target - progress) * (reduce ? 1 : 0.075);
   easeX += (pointerX - easeX) * (reduce ? 1 : 0.08);
   easeY += (pointerY - easeY) * (reduce ? 1 : 0.08);
-  if (!reduce) clock += 0.016;
+  if (!reduce) clock += inner ? 0.007 : 0.016;
   uniforms.uTime.value = clock;
   apply(progress, easeX, easeY);
   renderer.render(scene, camera);

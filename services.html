@@ -10,7 +10,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A0A0A'/><circle cx='32' cy='32' r='9' fill='%23B76E79'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=26">
+  <link rel="stylesheet" href="styles.css?v=32">
 </head>
 <body class="doc" data-page="services">
   <canvas id="webgl" aria-hidden="true"></canvas>
@@ -36,55 +36,52 @@
     </div>
   </header>
 
-  <main id="main">
-    <header class="index-mast studio">
-      <p class="kicker">Services</p>
-      <div>
-        <h1>Five systems, scoped one at a time.</h1>
-        <p>Each one is a job an owner already does by hand. The system lands in WhatsApp, the site, the calendar, Sheets, or Gmail.</p>
-      </div>
+  <main id="main" class="container room">
+    <header class="room-head">
+      <h1>Five systems, one job at a time.</h1>
+      <p>Each one replaces a task an owner already does by hand. It lands in WhatsApp, the site, the calendar, Sheets, or Gmail.</p>
     </header>
-
-    <div class="studio">
-      <article class="index-row" id="lead-generation">
-        <p class="idx">01</p>
+    <div class="plates">
+      <article class="plate" id="lead-generation">
         <h2>Lead generation</h2>
-        <p>Inquiries are read and scored before anyone digs through a chat. The ones worth a reply reach a person, including on WhatsApp, so a lead is not left overnight.</p>
-        <p class="card-path"><span>Inquiry</span><span>Score</span><span>WhatsApp</span></p>
+        <div>
+          <p>Inquiries are read and scored before anyone digs through a chat. The ones worth a reply reach a person, including on WhatsApp, so a lead is not left overnight.</p>
+          <p class="card-path"><span>Inquiry</span><span>Score</span><span>WhatsApp</span></p>
+        </div>
       </article>
-      <article class="index-row" id="ad-generation">
-        <p class="idx">02</p>
+      <article class="plate" id="ad-generation">
         <h2>Ad generation</h2>
-        <p>Drafts come from the offer you actually sell, in a few variations you can approve and run. You sign off on every line. A return figure we did not measure does not go in the ad.</p>
-        <p class="card-path"><span>Offer</span><span>Draft</span><span>Your approval</span></p>
+        <div>
+          <p>Drafts come from the offer you actually sell, in a few variations you can approve and run. You sign off on every line. A return figure we did not measure does not go in the ad.</p>
+          <p class="card-path"><span>Offer</span><span>Draft</span><span>Your approval</span></p>
+        </div>
       </article>
-      <article class="index-row" id="ai-chatbots">
-        <p class="idx">03</p>
+      <article class="plate" id="ai-chatbots">
         <h2>Conversation</h2>
-        <p>Replies for the questions you already answer by hand, on the site and on WhatsApp. If the answer is not in what you have told us, it says so and hands the thread to a person.</p>
-        <p class="card-path"><span>Question</span><span>Answer</span><span>Handover</span></p>
+        <div>
+          <p>Replies for the questions you already answer by hand, on the site and on WhatsApp. If the answer is not in what you have told us, it says so and hands the thread to a person.</p>
+          <p class="card-path"><span>Question</span><span>Answer</span><span>Handover</span></p>
+        </div>
       </article>
-      <article class="index-row" id="ai-receptionists">
-        <p class="idx">04</p>
+      <article class="plate" id="ai-receptionists">
         <h2>Reception</h2>
-        <p>It picks up, offers a time, and books into the calendar you already use. Calls it should not decide are routed to you. The calendar stays in charge of what is free.</p>
-        <p class="card-path"><span>Call</span><span>Time</span><span>Calendar</span></p>
+        <div>
+          <p>It picks up, offers a time, and books into the calendar you already use. Calls it should not decide are routed to you. The calendar stays in charge of what is free.</p>
+          <p class="card-path"><span>Call</span><span>Time</span><span>Calendar</span></p>
+        </div>
       </article>
-      <article class="index-row" id="ai-workflows">
-        <p class="idx">05</p>
+      <article class="plate" id="ai-workflows">
         <h2>Workflows</h2>
-        <p>The sheet, the mailbox, and the calendar joined so a follow-up is drafted once. Athera’s own outreach works this way: the record lives in Google Sheets, and the next note is drafted in Gmail for a person to send.</p>
-        <p class="card-path"><span>Sheet</span><span>Gmail draft</span><span>A person</span></p>
+        <div>
+          <p>The sheet, the mailbox, and the calendar joined so a follow-up is drafted once. Athera’s own outreach works this way: the record lives in Google Sheets, and the next note is drafted in Gmail for a person to send.</p>
+          <p class="card-path"><span>Sheet</span><span>Gmail draft</span><span>A person</span></p>
+        </div>
       </article>
     </div>
-
-    <section class="cta">
-      <div class="studio">
-        <h2>Start with one.</h2>
-        <p>Tell us which job should go first.</p>
-        <a class="btn btn-primary" href="contact.html">Book a call</a>
-      </div>
-    </section>
+    <div class="room-close">
+      <p>Start with one job.</p>
+      <a class="btn btn-primary" href="contact.html">Book a call</a>
+    </div>
   </main>
 
   <footer class="footer">
@@ -138,7 +135,7 @@
     }
   }
   </script>
-  <script type="module" src="scene.js?v=24"></script>
+  <script type="module" src="scene.js?v=26"></script>
   <script src="site.js" defer></script>
 </body>
 </html>

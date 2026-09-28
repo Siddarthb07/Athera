@@ -10,7 +10,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A0A0A'/><circle cx='32' cy='32' r='9' fill='%23B76E79'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=26">
+  <link rel="stylesheet" href="styles.css?v=32">
 </head>
 <body class="doc" data-page="about">
   <canvas id="webgl" aria-hidden="true"></canvas>
@@ -36,41 +36,36 @@
     </div>
   </header>
 
-  <main id="main">
-    <section class="about-stage studio">
-      <div class="about-story">
-        <p class="kicker">About</p>
-        <h1>Two founders. Bangalore.</h1>
-        <p class="lede">Siddarth Boggarapu and Ariv S started Athera so a smaller business could use a system that, until then, was being sold to companies with a software team.</p>
-        <h2>Why it started</h2>
-        <p>The offer on the market was a demonstration. The inbox, the WhatsApp thread, and the follow-up were still done by hand the next morning.</p>
-        <p>Athera started from that gap. One named job, then a system left in the sheet, the mailbox, the site, or WhatsApp. If it needs a slide to explain the value, it is the wrong project.</p>
-        <p>Names of clients stay private unless they ask to be named. A number that was not measured does not go on the page.</p>
-      </div>
-      <div class="about-people">
-        <article class="person">
-          <p class="person-mark" aria-hidden="true">SB</p>
-          <h2>Siddarth Boggarapu</h2>
-          <p class="role">Founder</p>
-          <p>Scopes and builds the systems, from the first call to handover. Write to him at siddarthb078@gmail.com.</p>
-          <a class="text-link" href="https://siddarthb07.github.io/siddarthb/">His other work</a>
-        </article>
-        <article class="person">
-          <p class="person-mark" aria-hidden="true">AS</p>
-          <h2>Ariv S</h2>
-          <p class="role">Co-founder</p>
+  <main id="main" class="container room">
+    <header class="room-head">
+      <h1>The practice.</h1>
+      <p>Siddarth Boggarapu and Ariv Shivakumar started Athera in Bangalore so a smaller business could use a system that, until then, was being sold to companies with a software team.</p>
+    </header>
+    <div class="plates">
+      <article class="plate">
+        <h2>Siddarth Boggarapu</h2>
+        <div>
+          <p class="founder-role">Founder</p>
+          <p>Scopes and builds the systems, from the first call to handover. You write to him directly. There is no shared inbox.</p>
+          <p class="plate-links"><a class="text-link" href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a> <a class="text-link" href="https://siddarthb07.github.io/siddarthb/">His other work</a></p>
+        </div>
+      </article>
+      <article class="plate">
+        <h2>Ariv Shivakumar</h2>
+        <div>
+          <p class="founder-role">Co-founder</p>
           <p>Started Athera with Siddarth Boggarapu. The practice is based in Bangalore.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="studio">
-        <h2>Start with a call.</h2>
-        <p>Then a written scope, before anything is built.</p>
-        <a class="btn btn-primary" href="contact.html">Book a call</a>
-      </div>
-    </section>
+        </div>
+      </article>
+    </div>
+    <div class="room-story">
+      <p>The offer on the market was a demonstration. The inbox, the WhatsApp thread, and the follow-up were still done by hand the next morning.</p>
+      <p>Athera started from that gap. One named job, then a system left in the sheet, the mailbox, the site, or WhatsApp. If it needs a slide to explain the value, it is the wrong project. Names of clients stay private unless they ask to be named.</p>
+    </div>
+    <div class="room-close">
+      <p>Start with a call, then a written scope, before anything is built.</p>
+      <a class="btn btn-primary" href="contact.html">Book a call</a>
+    </div>
   </main>
 
   <footer class="footer">
@@ -124,7 +119,7 @@
     }
   }
   </script>
-  <script type="module" src="scene.js?v=24"></script>
+  <script type="module" src="scene.js?v=26"></script>
   <script src="site.js" defer></script>
 </body>
 </html>
