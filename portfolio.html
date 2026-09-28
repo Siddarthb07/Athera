@@ -10,9 +10,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A0A0A'/><circle cx='32' cy='32' r='9' fill='%23B76E79'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=18">
+  <link rel="stylesheet" href="styles.css?v=26">
 </head>
-<body class="doc">
+<body class="doc" data-page="work">
   <canvas id="webgl" aria-hidden="true"></canvas>
   <div class="scrim" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
@@ -37,47 +37,43 @@
   </header>
 
   <main id="main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="kicker">Work</p>
+    <header class="index-mast studio">
+      <p class="kicker">Work</p>
+      <div>
         <h1>What is actually running.</h1>
-        <p class="lede">Three pieces of work. Client names stay private unless they ask to be named. No invented results.</p>
+        <p>Three pieces of work. Client names stay private unless they ask to be named. No invented results.</p>
       </div>
-    </section>
+    </header>
 
-    <section class="section">
-      <div class="container">
-        <div class="work-list">
-          <article class="work-row">
-            <p class="work-status">Live</p>
-            <div>
-              <h2>Two business sites</h2>
-              <p>Two owner-run businesses have sites in production. Both were designed and built here. An inquiry on the site goes to the owner on WhatsApp, so the lead is not waiting in a form nobody opens.</p>
-              <p class="work-type">Websites and lead capture</p>
-            </div>
-          </article>
-          <article class="work-row">
-            <p class="work-status">In progress</p>
-            <div>
-              <h2>An HR assistant</h2>
-              <p>An assistant for one team’s questions, still being built. It answers from what that team has already decided. It is not a public demo, and it is not a finished product you can try.</p>
-              <p class="work-type">Private workflow</p>
-            </div>
-          </article>
-          <article class="work-row">
-            <p class="work-status">Built</p>
-            <div>
-              <h2>Athera outreach</h2>
-              <p>The studio’s own pipeline, not a client case. Contacts live in a Google Sheet. The next follow-up is drafted in Gmail, and a person sends it. This is the workflow we use ourselves.</p>
-              <p class="work-type">Sheets and Gmail</p>
-            </div>
-          </article>
+    <div class="studio">
+      <article class="work-band">
+        <p class="band-status">Live</p>
+        <div>
+          <h2>Two business sites</h2>
+          <p>Two owner-run businesses have sites in production. Both were designed and built here. An inquiry on the site goes to the owner on WhatsApp, so the lead is not waiting in a form nobody opens.</p>
+          <p class="work-type">Websites and lead capture</p>
         </div>
-      </div>
-    </section>
+      </article>
+      <article class="work-band">
+        <p class="band-status">Building</p>
+        <div>
+          <h2>An HR assistant</h2>
+          <p>An assistant for one team’s questions, still being built. It answers from what that team has already decided. It is not a public demo, and it is not a finished product you can try.</p>
+          <p class="work-type">Private workflow</p>
+        </div>
+      </article>
+      <article class="work-band">
+        <p class="band-status">Ours</p>
+        <div>
+          <h2>Athera outreach</h2>
+          <p>The studio’s own pipeline, not a client case. Contacts live in a Google Sheet. The next follow-up is drafted in Gmail, and a person sends it. This is the workflow we use ourselves.</p>
+          <p class="work-type">Sheets and Gmail</p>
+        </div>
+      </article>
+    </div>
 
     <section class="cta">
-      <div class="container">
+      <div class="studio">
         <h2>Next project.</h2>
         <p>Tell us what should stop being manual.</p>
         <a class="btn btn-primary" href="contact.html">Book a call</a>
@@ -136,7 +132,7 @@
     }
   }
   </script>
-  <script type="module" src="scene.js"></script>
+  <script type="module" src="scene.js?v=24"></script>
   <script src="site.js" defer></script>
 </body>
 </html>

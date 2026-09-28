@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 const canvas = document.querySelector('#webgl');
 if (!canvas) {
@@ -9,6 +10,16 @@ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const story = document.querySelector('[data-story]');
 const copies = story ? [...story.querySelectorAll('.copy')] : [];
 const hint = document.querySelector('.hint');
+const page = document.body.dataset.page || 'home';
+
+const poses = {
+  home: { x: 1.55, y: 0.05, scale: 1.18, rot: 0.35 },
+  services: { x: 1.85, y: 0.15, scale: 0.96, rot: 0.85 },
+  about: { x: 1.7, y: 0.05, scale: 1.02, rot: -0.15 },
+  work: { x: 1.6, y: -0.05, scale: 0.98, rot: 1.25 },
+  contact: { x: 2.15, y: 0.2, scale: 0.7, rot: 0.15 }
+};
+const pose = poses[page] || poses.home;
 
 const renderer = new THREE.WebGLRenderer({
   canvas,
@@ -19,11 +30,15 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setClearColor(0x07060b, 1);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.08;
 
 const scene = new THREE.Scene();
-scene.fog = new THREE.FogExp2(0x07060b, 0.045);
+scene.fog = new THREE.FogExp2(0x07060b, 0.028);
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+
 const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 40);
-camera.position.set(0, 0.1, 8.2);
+camera.position.set(0, 0.1, 8.4);
 
 const uniforms = {
   uTime: { value: 0.8 },
@@ -100,41 +115,27 @@ bg.renderOrder = -2;
 bg.frustumCulled = false;
 scene.add(bg);
 
-const field = new THREE.Group();
-scene.add(field);
-const streaks = [];
-const streakGeo = new THREE.BoxGeometry(0.012, 1, 0.012);
-const streakColors = [0xe4d2b0, 0xc6a36a, 0xf6f1ea, 0x8d6a45];
-
-for (let i = 0; i < 48; i += 1) {
-  const mat = new THREE.MeshBasicMaterial({
-    color: streakColors[i % streakColors.length],
-    transparent: true,
-    opacity: 0.22 + (i % 5) * 0.06,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false,
-    toneMapped: false
-  });
-  const streak = new THREE.Mesh(streakGeo, mat);
-  streak.position.set((Math.random() - 0.5) * 16, (Math.random() - 0.5) * 10, -1.5 - Math.random() * 9);
-  streak.scale.y = 0.45 + Math.random() * 1.4;
-  streak.rotation.z = (Math.random() - 0.5) * 0.6;
-  streak.userData.speed = 0.25 + Math.random() * 0.55;
-  streak.userData.drift = (Math.random() - 0.5) * 0.15;
-  field.add(streak);
-  streaks.push(streak);
-}
+scene.add(new THREE.AmbientLight(0xfff1df, 0.35));
+const key = new THREE.DirectionalLight(0xffe4bc, 2.4);
+key.position.set(4, 5, 6);
+scene.add(key);
+const rim = new THREE.PointLight(0xc45c48, 18, 14);
+rim.position.set(-2.2, -0.4, 3);
+scene.add(rim);
+const fill = new THREE.PointLight(0xf6f1ea, 6, 10);
+fill.position.set(2.4, 1.6, 2);
+scene.add(fill);
 
 function braidCurve(phase, radius, turns) {
   const points = [];
-  const steps = 140;
+  const steps = 160;
   for (let i = 0; i <= steps; i += 1) {
     const t = i / steps;
     const angle = t * Math.PI * 2 * turns + phase;
     points.push(new THREE.Vector3(
       Math.cos(angle) * radius,
-      (t - 0.5) * 2.6 + Math.sin(angle * 2.0) * 0.28,
-      Math.sin(angle) * radius * 0.66
+      (t - 0.5) * 3.2 + Math.sin(angle * 2.0) * 0.22,
+      Math.sin(angle) * radius * 0.7
     ));
   }
   return new THREE.CatmullRomCurve3(points);
@@ -171,37 +172,41 @@ const ribbonMat = new THREE.ShaderMaterial({
       vec3 view = normalize(vView);
       float fres = pow(1.0 - max(dot(n, view), 0.0), 2.0);
       vec3 rose = vec3(0.86, 0.68, 0.42);
-      vec3 violet = vec3(0.55, 0.28, 0.24);
+      vec3 wine = vec3(0.55, 0.28, 0.24);
       vec3 cream = vec3(0.97, 0.94, 0.88);
-      vec3 col = mix(rose, violet, smoothstep(0.2, 0.8, vAlong));
+      vec3 col = mix(rose, wine, smoothstep(0.2, 0.8, vAlong));
       col = mix(col, cream, fres * 0.85);
-      float alpha = mix(0.72, 1.0, fres);
+      float alpha = mix(0.78, 1.0, fres);
       gl_FragColor = vec4(col, alpha);
     }
   `
 });
 
+const metal = new THREE.MeshPhysicalMaterial({
+  color: 0xe7d3ae,
+  metalness: 1,
+  roughness: 0.16,
+  clearcoat: 1,
+  clearcoatRoughness: 0.08,
+  envMapIntensity: 1.5
+});
+
 const braidGroup = new THREE.Group();
 const signals = [];
 [
-  [0, 1.15, 1.35, 0.055],
-  [2.2, 0.92, 1.7, 0.032],
-  [4.1, 1.32, 1.1, 0.022]
+  [0, 1.05, 1.45, 0.05],
+  [2.2, 0.84, 1.75, 0.03],
+  [4.1, 1.22, 1.15, 0.02]
 ].forEach(([phase, radius, turns, tube], index) => {
   const curve = braidCurve(phase, radius, turns);
-  const strand = new THREE.Mesh(new THREE.TubeGeometry(curve, 180, tube, 18, false), ribbonMat);
+  const strand = new THREE.Mesh(new THREE.TubeGeometry(curve, 200, tube, 16, false), ribbonMat);
   strand.userData.strand = true;
   braidGroup.add(strand);
   if (index !== 0) return;
   for (let s = 0; s < 3; s += 1) {
     const bead = new THREE.Mesh(
-      new THREE.SphereGeometry(0.034, 16, 16),
-      new THREE.MeshBasicMaterial({
-        color: 0xf6f1ea,
-        transparent: true,
-        opacity: 0.95,
-        toneMapped: false
-      })
+      new THREE.SphereGeometry(0.038, 20, 20),
+      new THREE.MeshBasicMaterial({ color: 0xf6f1ea, toneMapped: false })
     );
     bead.userData.curve = curve;
     bead.userData.offset = s / 3;
@@ -209,7 +214,37 @@ const signals = [];
     signals.push(bead);
   }
 });
+
+[-1.15, 0.05, 1.15].forEach((y, index) => {
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.018, 20, 96), metal);
+  ring.position.y = y;
+  ring.rotation.x = Math.PI / 2;
+  ring.rotation.z = index * 0.55;
+  ring.userData.gate = true;
+  ring.userData.spin = 0.15 + index * 0.05;
+  braidGroup.add(ring);
+});
+
 scene.add(braidGroup);
+
+const deck = new THREE.Group();
+[0xc6a36a, 0xe4d2b0, 0xf6f1ea].forEach((color, index) => {
+  const card = new THREE.Mesh(
+    new THREE.BoxGeometry(1.05, 0.018, 0.62),
+    new THREE.MeshPhysicalMaterial({
+      color,
+      metalness: 0.95,
+      roughness: 0.18,
+      clearcoat: 0.8,
+      envMapIntensity: 1.3
+    })
+  );
+  card.position.y = index * 0.03;
+  deck.add(card);
+});
+deck.position.set(pose.x, -2.15, 0.2);
+deck.rotation.x = -0.4;
+scene.add(deck);
 
 let pointerX = 0;
 let pointerY = 0;
@@ -235,11 +270,15 @@ function smooth(edge0, edge1, value) {
 }
 
 function storyProgress() {
-  if (!story) return 0;
-  const total = story.offsetHeight - window.innerHeight;
+  if (story) {
+    const total = story.offsetHeight - window.innerHeight;
+    if (total <= 0) return 0;
+    const scrolled = Math.min(total, Math.max(0, -story.getBoundingClientRect().top));
+    return scrolled / total;
+  }
+  const total = document.documentElement.scrollHeight - window.innerHeight;
   if (total <= 0) return 0;
-  const scrolled = Math.min(total, Math.max(0, -story.getBoundingClientRect().top));
-  return scrolled / total;
+  return Math.min(1, Math.max(0, window.scrollY / total));
 }
 
 function showCopy(index) {
@@ -253,44 +292,56 @@ function showCopy(index) {
 
 function apply(p, ix, iy) {
   const wide = window.innerWidth > 860;
-
   uniforms.uScroll.value = p;
   uniforms.uPointer.value.set(ix, iy);
 
-  const orbit = p * Math.PI * 1.35;
-  const intoCenter = smooth(0.08, 0.28, p) * (1 - smooth(0.42, 0.62, p));
-  braidGroup.position.x = wide ? 1.15 - intoCenter * 0.35 : 0;
-  braidGroup.position.y = Math.sin(orbit) * 0.35;
-  braidGroup.scale.setScalar(wide ? 1.05 + Math.sin(p * Math.PI) * 0.28 : 0.62);
-  braidGroup.rotation.y = orbit + ix * 0.45;
-  braidGroup.rotation.x = -0.25 + Math.sin(orbit * 0.5) * 0.35 - iy * 0.22;
-  braidGroup.rotation.z = Math.sin(orbit) * 0.18 + ix * 0.06;
+  const orbit = p * Math.PI * 1.2;
+  const idle = reduce ? 0 : clock * 0.12;
+  braidGroup.position.x = wide ? pose.x + ix * 0.18 : 0.15;
+  braidGroup.position.y = pose.y + Math.sin(orbit) * 0.28 - iy * 0.12;
+  braidGroup.scale.setScalar(wide ? pose.scale + Math.sin(p * Math.PI) * 0.12 : 0.58);
+  braidGroup.rotation.y = pose.rot + idle + orbit + ix * 0.4;
+  braidGroup.rotation.x = -0.22 + Math.sin(orbit * 0.5) * 0.28 - iy * 0.2;
+  braidGroup.rotation.z = Math.sin(orbit) * 0.12;
 
-  braidGroup.children.forEach((strand, index) => {
-    if (!strand.userData.strand) return;
-    const side = index - 1;
-    const peel = Math.sin(p * Math.PI);
-    strand.position.x = side * peel * 0.55;
-    strand.position.z = side * peel * 0.35;
-    strand.rotation.y = side * p * 1.8;
-    strand.rotation.z = side * peel * 0.4;
+  braidGroup.children.forEach((child, index) => {
+    if (child.userData.strand) {
+      const side = index - 1;
+      const peel = Math.sin(p * Math.PI);
+      child.position.x = side * peel * 0.42;
+      child.position.z = side * peel * 0.28;
+      child.rotation.y = side * p * 1.4;
+      return;
+    }
+    if (child.userData.gate && !reduce) {
+      child.rotation.z += 0.002 * child.userData.spin * 8;
+    }
   });
 
   signals.forEach((bead) => {
-    const t = (clock * 0.045 + bead.userData.offset) % 1;
+    const t = (clock * 0.04 + bead.userData.offset) % 1;
     bead.position.copy(bead.userData.curve.getPointAt(t));
     const pulse = 0.85 + Math.sin((clock + bead.userData.offset * 8) * 3) * 0.15;
     bead.scale.setScalar(reduce ? 1 : pulse);
   });
 
-  field.rotation.y = ix * 0.22 + p * 1.1;
-  field.rotation.x = iy * 0.12 + Math.sin(orbit) * 0.08;
-  field.position.z = -0.4 - p * 1.2;
+  const open = page === 'work' ? 0.7 + p * 0.4 : Math.sin(p * Math.PI);
+  deck.position.set(
+    wide ? pose.x + 0.2 : 0,
+    -2.05 + open * 0.25,
+    0.2
+  );
+  deck.children.forEach((card, index) => {
+    const side = index - 1;
+    card.position.x = side * open * 0.34;
+    card.position.z = Math.abs(side) * open * 0.12;
+    card.rotation.y = side * open * 0.28;
+  });
 
-  camera.position.x = Math.sin(orbit * 0.5) * 0.7 + ix * 0.25;
-  camera.position.y = 0.15 + Math.sin(p * Math.PI) * 0.55;
-  camera.position.z = 8.6 - Math.sin(p * Math.PI) * 1.8;
-  camera.lookAt(braidGroup.position.x * 0.35, braidGroup.position.y, 0);
+  camera.position.x = Math.sin(orbit * 0.5) * 0.35 + ix * 0.2;
+  camera.position.y = 0.12 + Math.sin(p * Math.PI) * 0.35;
+  camera.position.z = 8.5 - Math.sin(p * Math.PI) * 1.1;
+  camera.lookAt(wide ? 0.35 : 0, braidGroup.position.y * 0.25, 0);
 
   if (story) showCopy(p < 0.26 ? 0 : p < 0.52 ? 1 : p < 0.76 ? 2 : 3);
   document.documentElement.style.setProperty('--scroll-p', p.toFixed(4));
@@ -298,22 +349,12 @@ function apply(p, ix, iy) {
 
 function tick() {
   const target = storyProgress();
-  const follow = reduce ? 1 : 0.075;
-  progress += (target - progress) * follow;
+  progress += (target - progress) * (reduce ? 1 : 0.075);
   easeX += (pointerX - easeX) * (reduce ? 1 : 0.08);
   easeY += (pointerY - easeY) * (reduce ? 1 : 0.08);
-
-  if (!reduce) {
-    clock += 0.016;
-    streaks.forEach((streak) => {
-      streak.position.y += streak.userData.speed * 0.012 * (1 + uniforms.uScroll.value);
-      streak.position.x += streak.userData.drift * 0.01;
-      if (streak.position.y > 6) streak.position.y = -6;
-    });
-  }
-
+  if (!reduce) clock += 0.016;
   uniforms.uTime.value = clock;
-  apply(story ? progress : 0, easeX, easeY);
+  apply(progress, easeX, easeY);
   renderer.render(scene, camera);
   requestAnimationFrame(tick);
 }
@@ -323,5 +364,5 @@ window.addEventListener('resize', resize);
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) resize();
 });
-showCopy(0);
+if (story) showCopy(0);
 tick();
