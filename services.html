@@ -3,229 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Athera Services — AI-powered lead generation, ad generation, chatbots, AI receptionists, and workflow automation solutions for modern businesses.">
-  <title>Services — Athera</title>
+  <title>Services | Athera</title>
+  <meta name="description" content="AI lead generation, ad generation, chatbots, receptionists, and custom AI workflows from Athera.">
+  <link rel="canonical" href="https://athera.digital/services.html">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A0A0A'/><circle cx='32' cy='32' r='9' fill='%23B76E79'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
 </head>
 <body>
-  <!-- Page Transition -->
-  <div class="page-transition"></div>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Navigation -->
-  <nav class="nav" id="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link active">Services</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="contact.html" class="btn btn-primary btn-glow nav-cta"><span>Book a Call</span></a>
+  <header class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Athera home"><span class="brand-mark" aria-hidden="true"></span>ATHERA</a>
+      <nav aria-label="Main">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" aria-current="page">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-cta" href="contact.html">Book a Call</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span></button>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </nav>
+  </header>
 
-  <!-- Page Hero -->
-  <section class="page-hero" style="position:relative;overflow:hidden;">
-    <div class="hero-particles" id="heroParticles" style="position:absolute;inset:0;z-index:0;"></div>
-    <div class="hero-gradient hero-gradient-1" style="position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(120px);opacity:0.12;top:-200px;right:-100px;background:var(--rose-gold);"></div>
-    <div class="container" style="position:relative;z-index:2;">
-      <div class="section-subtitle">Our Services</div>
-      <h1>AI Solutions <span class="text-gradient">That Scale</span></h1>
-      <p>From lead generation to full workflow automation — we build intelligent systems that transform your operations and accelerate growth.</p>
-    </div>
-  </section>
-
-  <!-- Service Details -->
-  <section>
-    <div class="container">
-
-      <!-- Lead Generation -->
-      <div class="service-detail">
-        <div class="service-detail-visual reveal-left">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="service-detail-content reveal-right">
-          <div class="section-subtitle">Service 01</div>
-          <h3>AI-Powered <span class="text-gradient">Lead Generation</span></h3>
-          <p>Our intelligent lead generation system uses machine learning to identify, score, and nurture high-value prospects — delivering qualified leads directly to your sales pipeline without the manual hustle.</p>
-          <div class="service-features">
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Predictive lead scoring powered by AI</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Multi-channel prospecting automation</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>CRM integration &amp; pipeline management</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Real-time analytics dashboard</span>
-            </div>
-          </div>
-        </div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow rise">Services</span>
+        <h1 class="rise rise-2">AI Solutions That <span class="accent">Scale</span></h1>
+        <p class="lede rise rise-3">From lead generation to full workflow automation, we build intelligent systems that transform your operations and accelerate growth.</p>
       </div>
+    </section>
 
-      <!-- Ad Generation -->
-      <div class="service-detail">
-        <div class="service-detail-visual reveal-right">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        </div>
-        <div class="service-detail-content reveal-left">
-          <div class="section-subtitle">Service 02</div>
-          <h3>Intelligent <span class="text-gradient">Ad Generation</span></h3>
-          <p>Create high-converting advertisement creatives at scale. Our AI analyzes your brand, audience, and goals to generate ad copy, visuals, and targeting strategies that maximize ROI.</p>
-          <div class="service-features">
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>AI-generated ad copy &amp; creative</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>A/B testing automation</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Audience targeting optimization</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Cross-platform deployment (Meta, Google, TikTok)</span>
-            </div>
+    <section class="section">
+      <div class="container">
+        <article class="service-row" id="lead-generation">
+          <div>
+            <span class="eyebrow">Lead Generation</span>
+            <h2>AI-Powered Lead Generation</h2>
+            <p>Our intelligent lead generation system uses machine learning to identify, score, and nurture high-value prospects, delivering qualified leads directly to your sales pipeline without the manual hustle.</p>
           </div>
-        </div>
-      </div>
+          <ul class="feature-list">
+            <li>Predictive lead scoring powered by AI</li>
+            <li>Multi-channel prospecting automation</li>
+            <li>CRM integration and pipeline management</li>
+            <li>Real-time analytics dashboard</li>
+          </ul>
+        </article>
 
-      <!-- AI Chatbots -->
-      <div class="service-detail">
-        <div class="service-detail-visual reveal-left">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="service-detail-content reveal-right">
-          <div class="section-subtitle">Service 03</div>
-          <h3>Conversational <span class="text-gradient">AI Chatbots</span></h3>
-          <p>Deploy intelligent chatbots that understand context, handle complex queries, and deliver personalized experiences — turning visitors into customers around the clock.</p>
-          <div class="service-features">
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Natural language understanding (NLU)</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Multi-language support</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Seamless handoff to human agents</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Website, WhatsApp &amp; social integration</span>
-            </div>
+        <article class="service-row" id="ad-generation">
+          <div>
+            <span class="eyebrow">Ad Generation</span>
+            <h2>Intelligent Ad Generation</h2>
+            <p>Create high-converting advertisement creatives at scale. Our AI analyzes your brand, audience, and goals to generate ad copy, visuals, and targeting strategies that maximize ROI.</p>
           </div>
-        </div>
-      </div>
+          <ul class="feature-list">
+            <li>AI-generated ad copy and creative</li>
+            <li>A/B testing automation</li>
+            <li>Audience targeting optimization</li>
+            <li>Cross-platform deployment (Meta, Google, TikTok)</li>
+          </ul>
+        </article>
 
-      <!-- AI Receptionists -->
-      <div class="service-detail">
-        <div class="service-detail-visual reveal-right">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <div class="service-detail-content reveal-left">
-          <div class="section-subtitle">Service 04</div>
-          <h3>Virtual <span class="text-gradient">AI Receptionists</span></h3>
-          <p>Never miss a call again. Our AI receptionists handle inbound calls with human-like conversation, book appointments, answer FAQs, and route complex inquiries — 24/7/365.</p>
-          <div class="service-features">
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Human-like voice interaction</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Appointment scheduling &amp; calendar sync</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Intelligent call routing &amp; escalation</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Call analytics &amp; transcription</span>
-            </div>
+        <article class="service-row" id="ai-chatbots">
+          <div>
+            <span class="eyebrow">AI Chatbots</span>
+            <h2>Conversational AI Chatbots</h2>
+            <p>Deploy intelligent chatbots that understand context, handle complex queries, and deliver personalized experiences, turning visitors into customers around the clock.</p>
           </div>
-        </div>
-      </div>
+          <ul class="feature-list">
+            <li>Natural language understanding (NLU)</li>
+            <li>Multi-language support</li>
+            <li>Seamless handoff to human agents</li>
+            <li>Website, WhatsApp and social integration</li>
+          </ul>
+        </article>
 
-      <!-- AI Workflows -->
-      <div class="service-detail">
-        <div class="service-detail-visual reveal-left">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <div class="service-detail-content reveal-right">
-          <div class="section-subtitle">Service 05</div>
-          <h3>Custom <span class="text-gradient">AI Workflows</span></h3>
-          <p>Streamline your entire operation with custom AI-powered workflows. We connect your tools, automate repetitive tasks, and build intelligent pipelines that scale with your business.</p>
-          <div class="service-features">
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Custom automation pipelines</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>API &amp; third-party tool integration</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Data processing &amp; ETL automation</span>
-            </div>
-            <div class="service-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Real-time monitoring &amp; alerts</span>
-            </div>
+        <article class="service-row" id="ai-receptionists">
+          <div>
+            <span class="eyebrow">AI Receptionists</span>
+            <h2>Virtual AI Receptionists</h2>
+            <p>Never miss a call again. Our AI receptionists handle inbound calls with human-like conversation, book appointments, answer FAQs, and route complex inquiries, 24/7/365.</p>
           </div>
-        </div>
+          <ul class="feature-list">
+            <li>Human-like voice interaction</li>
+            <li>Appointment scheduling and calendar sync</li>
+            <li>Intelligent call routing and escalation</li>
+            <li>Call analytics and transcription</li>
+          </ul>
+        </article>
+
+        <article class="service-row" id="ai-workflows">
+          <div>
+            <span class="eyebrow">AI Workflows</span>
+            <h2>Custom AI Workflows</h2>
+            <p>Streamline your entire operation with custom AI-powered workflows. We connect your tools, automate repetitive tasks, and build intelligent pipelines that scale with your business.</p>
+          </div>
+          <ul class="feature-list">
+            <li>Custom automation pipelines</li>
+            <li>API and third-party tool integration</li>
+            <li>Data processing and ETL automation</li>
+            <li>Real-time monitoring and alerts</li>
+          </ul>
+        </article>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-box reveal-scale">
-        <div class="section-subtitle">Get Started</div>
-        <h2>Ready to <span class="text-gradient">Automate</span>?</h2>
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to <span class="accent">Automate</span>?</h2>
         <p>Let's discuss which AI solution fits your business. Book a free strategy call today.</p>
-        <a href="mailto:siddarthb078@gmail.com?subject=Book%20a%20Call%20-%20Athera%20Services" class="btn btn-primary btn-glow btn-magnetic">
-          <span>Book a Call</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
+        <a class="btn btn-primary" href="contact.html">Book a Call</a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo"><span class="logo-dot"></span> ATHERA</a>
-          <p>Intelligence at Work. We build AI solutions that drive real business results.</p>
+          <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>ATHERA</a>
+          <p>Intelligence at Work. We build AI solutions for real business problems, from chatbots to full workflow automation.</p>
         </div>
         <div>
-          <div class="footer-heading">Navigation</div>
-          <ul class="footer-links">
+          <p class="footer-title">Pages</p>
+          <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
@@ -234,36 +144,31 @@
           </ul>
         </div>
         <div>
-          <div class="footer-heading">Services</div>
-          <ul class="footer-links">
-            <li><a href="services.html">Lead Generation</a></li>
-            <li><a href="services.html">Ad Generation</a></li>
-            <li><a href="services.html">AI Chatbots</a></li>
-            <li><a href="services.html">AI Receptionists</a></li>
-            <li><a href="services.html">AI Workflows</a></li>
+          <p class="footer-title">Services</p>
+          <ul>
+            <li><a href="services.html#lead-generation">Lead Generation</a></li>
+            <li><a href="services.html#ad-generation">Ad Generation</a></li>
+            <li><a href="services.html#ai-chatbots">AI Chatbots</a></li>
+            <li><a href="services.html#ai-receptionists">AI Receptionists</a></li>
+            <li><a href="services.html#ai-workflows">AI Workflows</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-heading">Contact</div>
-          <ul class="footer-links">
+          <p class="footer-title">Contact</p>
+          <ul>
             <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
             <li><a href="contact.html">Book a Call</a></li>
+            <li>Bangalore, India</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Athera. All rights reserved.</p>
-        <div class="footer-socials">
-          <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        </div>
+        <p>© 2026 Athera. All rights reserved.</p>
+        <p>Bangalore, India</p>
       </div>
     </div>
   </footer>
 
-  <script src="particles-config.js"></script>
-  <script src="nav.js"></script>
-  <script src="animations.js"></script>
+  <script src="site.js" defer></script>
 </body>
 </html>
