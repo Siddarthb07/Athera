@@ -1,7 +1,15 @@
 const nav = document.getElementById('navbar');
 const toggle = document.querySelector('.nav-toggle');
 
-const syncNav = () => nav && nav.classList.toggle('is-scrolled', window.scrollY > 8);
+let lastY = 0;
+const syncNav = () => {
+  if (!nav) return;
+  const y = window.scrollY;
+  nav.classList.toggle('is-scrolled', y > 8);
+  const menuOpen = nav.classList.contains('is-open');
+  nav.classList.toggle('is-hidden', !menuOpen && y > lastY && y > 120);
+  lastY = y;
+};
 if (nav) {
   syncNav();
   window.addEventListener('scroll', syncNav, { passive: true });
@@ -23,7 +31,7 @@ if (toggle && nav) {
 }
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const revealNodes = document.querySelectorAll('.offer article, .work-card, .section-head');
+const revealNodes = document.querySelectorAll('.offer article, .cards article, .work-card, .section-head');
 
 if (!reduceMotion && revealNodes.length) {
   revealNodes.forEach((node) => node.classList.add('reveal'));
@@ -35,6 +43,44 @@ if (!reduceMotion && revealNodes.length) {
     });
   }, { threshold: 0.18 });
   revealNodes.forEach((node) => observer.observe(node));
+}
+
+const chapters = [...document.querySelectorAll('[data-chapter]')];
+const chapterIndex = document.querySelector('[data-chapter-index]');
+const chapterName = document.querySelector('[data-chapter-name]');
+
+if (chapters.length && chapterIndex && chapterName) {
+  const chapterObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    chapterIndex.textContent = visible.target.dataset.chapter;
+    chapterName.textContent = visible.target.dataset.name;
+  }, { threshold: [0.35, 0.6] });
+  chapters.forEach((section) => chapterObserver.observe(section));
+}
+
+document.querySelectorAll('.section-head').forEach((head) => {
+  const mark = head.closest('[data-chapter]');
+  if (mark) head.dataset.mark = mark.dataset.chapter;
+});
+
+if (!reduceMotion) {
+  document.querySelectorAll('.btn-primary, .nav-cta').forEach((button) => {
+    button.addEventListener('pointermove', (event) => {
+      const box = button.getBoundingClientRect();
+      const x = (event.clientX - (box.left + box.width / 2)) * 0.28;
+      const y = (event.clientY - (box.top + box.height / 2)) * 0.4;
+      button.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    button.addEventListener('pointerleave', () => {
+      button.style.transform = '';
+    });
+    button.addEventListener('pointerdown', () => {
+      button.style.transform = 'scale(0.97)';
+    });
+  });
 }
 
 const form = document.getElementById('contactForm');

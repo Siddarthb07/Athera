@@ -7,14 +7,14 @@
   <meta name="description" content="Athera designs and builds AI systems for businesses in Bangalore: leads, ads, chat, reception, and the workflows between them.">
   <link rel="canonical" href="https://athera.digital/">
   <meta property="og:title" content="Athera | Intelligence at Work">
-  <meta property="og:description" content="Founder-led AI systems for businesses. Bangalore.">
+  <meta property="og:description" content="AI systems for owner-run businesses. Bangalore.">
   <meta property="og:url" content="https://athera.digital/">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#07060B">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2307060B'/><rect x='18' y='26' width='28' height='4' rx='1' fill='%23C6A36A'/><rect x='22' y='34' width='20' height='3' rx='1' fill='%23E4D2B0'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=15">
   <script type="importmap">
   {
     "imports": {
@@ -28,6 +28,8 @@
   <a class="skip" href="#main">Skip to content</a>
   <canvas id="webgl" aria-hidden="true"></canvas>
   <div class="scrim" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <p class="chapter"><span data-chapter-index>01</span> <span data-chapter-name>Intro</span></p>
 
   <header class="nav" id="navbar">
     <div class="container nav-inner">
@@ -49,11 +51,23 @@
   </header>
 
   <main id="main" data-story>
-    <section class="hero-stage">
+    <section class="hero-stage" data-chapter="01" data-name="Intro">
       <div class="container">
-        <p class="kicker">Founder-led · Bangalore</p>
+        <p class="kicker">Bangalore</p>
         <h1>Intelligence<br><span class="accent">at work</span></h1>
-        <p class="lede">Athera designs and builds private AI systems for businesses that are finished watching demos. Lead capture, advertising, conversation, a front desk, and the workflows that join them.</p>
+        <p class="lede">Private AI systems for businesses.</p>
+        <p class="lede">Leads, ads, chat, a front desk, and the work between them.</p>
+        <div class="route">
+          <p class="route-label">How a job moves</p>
+          <div class="route-track">
+            <ol>
+              <li>Inquiry</li>
+              <li>Handled</li>
+              <li>A person</li>
+            </ol>
+            <span class="route-bead" aria-hidden="true"></span>
+          </div>
+        </div>
         <div class="hero-actions">
           <a class="btn btn-primary" href="contact.html">Book a call</a>
           <a class="btn btn-ghost" href="services.html">View the practice</a>
@@ -62,205 +76,190 @@
     </section>
 
     <div class="sheet">
-      <section class="section" id="practice">
+      <section class="section" id="practice" data-chapter="02" data-name="Practice">
         <div class="container">
           <div class="section-head">
             <p class="kicker">The practice</p>
-            <h2>Five systems. Built around the business you already run.</h2>
-            <p>We do not sell a platform and leave you to configure it. Each engagement is one system, scoped in writing, and handed over in the tools your team opens every day.</p>
+            <h2>Five systems.</h2>
+            <p>One at a time. Scoped in writing. Left in tools you already open.</p>
           </div>
-          <div class="offer">
+          <div class="cards">
             <article id="lead-generation">
               <p class="offer-index">01</p>
-              <div>
-                <h3>Lead generation</h3>
-                <p>Inquiries are read, scored, and placed in front of the person who should answer. Built for the channels you already have, including WhatsApp, so a lead does not sit in a chat until it goes cold.</p>
-                <p>You keep the relationship. The system only decides which message deserves a human first.</p>
-              </div>
+              <h3>Lead generation</h3>
+              <p>Inquiries are read and scored before anyone has to dig through a chat. The ones worth a reply reach a person, including on WhatsApp, so a lead is not left overnight in a thread the owner will not open until morning.</p>
+              <p class="card-path"><span>Inquiry</span><span>Score</span><span>WhatsApp</span></p>
             </article>
             <article id="ad-generation">
               <p class="offer-index">02</p>
-              <div>
-                <h3>Ad generation</h3>
-                <p>Copy and creative drafted from the offer you actually sell, in variations you can run. We will not print a return figure we did not measure on your account.</p>
-                <p>The drafts are yours to approve. Nothing is published because a model preferred a line.</p>
-              </div>
+              <h3>Ad generation</h3>
+              <p>Drafts come from the offer you actually sell, in a few variations you can approve and run. You sign off on every line. We do not attach a return figure we did not measure.</p>
+              <p class="card-path"><span>Offer</span><span>Draft</span><span>Your approval</span></p>
             </article>
             <article id="ai-chatbots">
               <p class="offer-index">03</p>
-              <div>
-                <h3>Conversation</h3>
-                <p>A chat on your site or WhatsApp that answers the questions you hear every week, and passes anything uncertain to a person. The point is a reply, not a bot that improvises.</p>
-                <p>If it does not know, it says so and hands the thread over. That refusal is part of the build.</p>
-              </div>
+              <h3>Conversation</h3>
+              <p>A reply for the questions you already answer by hand, on the site and on WhatsApp. If the answer is not in what you have told us, it says so and hands the thread to a person. It does not invent a policy.</p>
+              <p class="card-path"><span>Question</span><span>Answer</span><span>Handover</span></p>
             </article>
             <article id="ai-receptionists">
               <p class="offer-index">04</p>
-              <div>
-                <h3>Reception</h3>
-                <p>A front desk that picks up, books the appointment, and routes the calls it should not decide. Your calendar stays the source of truth.</p>
-                <p>Hours, services, and who should be interrupted are written down before it ever answers.</p>
-              </div>
+              <h3>Reception</h3>
+              <p>It picks up, offers a time, and books into the calendar you already use. Calls it should not decide are routed to you. The calendar stays in charge of what is actually free.</p>
+              <p class="card-path"><span>Call</span><span>Time</span><span>Calendar</span></p>
             </article>
             <article id="ai-workflows">
               <p class="offer-index">05</p>
-              <div>
-                <h3>Workflows</h3>
-                <p>The path between the tools you already pay for. A sheet, a mailbox, a calendar, connected so the same follow-up is not typed twice.</p>
-                <p>Athera’s own outreach runs this way: the relationship lives in Google Sheets, and the next email is drafted in Gmail.</p>
-              </div>
+              <h3>Workflows</h3>
+              <p>The sheet, the mailbox, and the calendar joined so a follow-up is drafted once. Athera’s own outreach works this way: the record lives in Google Sheets, and the next note is drafted in Gmail for a person to send.</p>
+              <p class="card-path"><span>Sheet</span><span>Gmail draft</span><span>A person</span></p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" data-chapter="03" data-name="Engagement">
         <div class="container">
           <div class="section-head">
             <p class="kicker">Engagement</p>
-            <h2>How a project actually runs.</h2>
+            <h2>How a project runs.</h2>
           </div>
-          <div class="offer">
+          <div class="cards">
             <article>
               <p class="offer-index">01</p>
-              <div>
-                <h3>A call, then a recommendation</h3>
-                <p>We learn how the work happens today. You leave with one system worth building first, not a menu of everything AI can theoretically do.</p>
-              </div>
+              <h3>A call, then one recommendation</h3>
+              <p>The first call is to name the job, not to tour a catalogue. You leave with one recommendation: the system worth building first, and the ones that can wait.</p>
             </article>
             <article>
               <p class="offer-index">02</p>
-              <div>
-                <h3>Scope and price, in writing</h3>
-                <p>Nothing starts until the job, the boundary, and the fee are clear. If a request would need a claim we cannot stand behind, we say so before the build.</p>
-              </div>
+              <h3>Scope and price, in writing</h3>
+              <p>The scope names the job, the limit, and the fee before any build starts. A chat can be short. A workflow takes longer. The duration is written down, not promised as a week for every kind of work.</p>
             </article>
             <article>
               <p class="offer-index">03</p>
-              <div>
-                <h3>Handover to the founder</h3>
-                <p>Siddarth Boggarapu scopes, builds, and supports the work. After handover you are not writing to a queue. You are writing to the person who made it.</p>
-              </div>
+              <h3>Handover to the founder</h3>
+              <p>Siddarth Boggarapu builds it and is the person you write to after. There is no shared inbox and no second login. The system lands in the tools you already open.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" data-chapter="04" data-name="Who">
         <div class="container">
           <div class="section-head">
             <p class="kicker">Who it is for</p>
-            <h2>Owner-run businesses, not a department with a lab.</h2>
-            <p>The fit is a company where the owner, or a very small team, still feels the missed lead. A clinic, a studio, a local service, a firm that answers on WhatsApp. If the work is already a staffed operations team with its own software group, you do not need Athera.</p>
+            <h2>Owner-run businesses.</h2>
+            <p>A clinic, a studio, a firm on WhatsApp. Not a company that already has a software team.</p>
           </div>
-          <div class="offer">
+          <div class="cards">
             <article>
               <p class="offer-index">01</p>
-              <div>
-                <h3>One job, named</h3>
-                <p>We start from a task someone does every day: reply, book, follow up, or draft. If the task cannot be pointed at, the project does not start.</p>
-              </div>
+              <h3>One job, named</h3>
+              <p>A clinic, a studio, a shop, a small firm. The owner still answers the phone. If you cannot point at one task, reply, book, follow up, or draft, we do not start.</p>
             </article>
             <article>
               <p class="offer-index">02</p>
-              <div>
-                <h3>Tools you already open</h3>
-                <p>The site, WhatsApp, Google Sheets, Gmail, a calendar. The system is installed there. There is no second login whose only purpose is to look at Athera.</p>
-              </div>
+              <h3>Tools you already open</h3>
+              <p>The site, WhatsApp, Google Sheets, Gmail, and the calendar. The system is placed where the work already happens, so the team does not learn another product.</p>
             </article>
             <article>
               <p class="offer-index">03</p>
-              <div>
-                <h3>A person at the end of it</h3>
-                <p>Siddarth Boggarapu is the person who scopes it and the person who answers after it ships. Bangalore. You write to siddarthb078@gmail.com, not to a shared inbox with no name.</p>
-              </div>
+              <h3>A person at the end</h3>
+              <p>Siddarth Boggarapu and Ariv S, in Bangalore. You write to Siddarth directly, at siddarthb078@gmail.com, not to a queue.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" data-chapter="05" data-name="Handover">
         <div class="container">
           <div class="section-head">
             <p class="kicker">Handover</p>
-            <h2>What you actually receive.</h2>
-            <p>A finished engagement is a running system plus a short written note. The note says what it will do, what it will refuse, and how to reach the founder if it misbehaves.</p>
+            <h2>What you receive.</h2>
+            <p>A running system. A short note on what it will refuse. A way to reach the founder.</p>
           </div>
-          <div class="offer">
+          <div class="cards">
             <article>
               <p class="offer-index">01</p>
-              <div>
-                <h3>The system, in place</h3>
-                <p>Not a slide and not a login to a demo. The chat is on your site or WhatsApp. The leads land where you already look. The draft is in the mailbox you send from.</p>
-              </div>
+              <h3>The system, in place</h3>
+              <p>A running system on your site, on WhatsApp, or in the mailbox you already send from. You can use it the week it ships, or it is not finished.</p>
             </article>
             <article>
               <p class="offer-index">02</p>
-              <div>
-                <h3>The boundary, in writing</h3>
-                <p>What the system is allowed to decide, and what must wait for a person. That boundary is part of the delivery, because a confident wrong answer is worse than a delay.</p>
-              </div>
+              <h3>The boundary, in writing</h3>
+              <p>A short note on what it may decide on its own, and what must wait for a person. That boundary is part of the delivery, not a footnote.</p>
             </article>
             <article>
               <p class="offer-index">03</p>
-              <div>
-                <h3>Time, quoted per job</h3>
-                <p>A narrow chat can be short. A workflow that touches several tools takes longer. The duration is in the scope, before work starts. There is no standing promise of “live in a week” for every job.</p>
-              </div>
+              <h3>Time, quoted per job</h3>
+              <p>Time is quoted for the job in front of us. We do not publish one turnaround for every engagement, because a receptionist and a workflow are not the same build.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" data-chapter="06" data-name="Work">
         <div class="container">
           <div class="section-head">
             <p class="kicker">Selected work</p>
-            <h2>What is real, and what is still being built.</h2>
-            <p>Client names stay private unless a client asks to be named. We would rather show a short list than invent a case study.</p>
+            <h2>What is real.</h2>
+            <p>Names stay private unless a client asks. No invented case studies.</p>
           </div>
-          <div class="work-grid">
-            <article class="work-card">
-              <span class="work-status">Live</span>
-              <h2>Websites for two small businesses</h2>
-              <p>Designed and built both sites, including the inquiry path. A WhatsApp lead goes to the owner, not into a form that nobody checks.</p>
-              <p class="work-type">Websites and lead capture</p>
+          <div class="cards">
+            <article>
+              <p class="offer-index">Live</p>
+              <h3>Two business sites</h3>
+              <p>Two owner-run businesses have sites in production. Inquiries from the site go to the owner on WhatsApp. Client names stay private unless they ask to be named.</p>
+              <p class="card-path"><span>Site</span><span>WhatsApp</span><span>Owner</span></p>
             </article>
-            <article class="work-card">
-              <span class="work-status">In progress</span>
-              <h2>Assistant for an HR team</h2>
-              <p>An internal assistant for one company’s HR team. It is being built for their questions and their documents. It is not a public demo.</p>
-              <p class="work-type">Private workflow</p>
+            <article>
+              <p class="offer-index">In progress</p>
+              <h3>An HR assistant</h3>
+              <p>An assistant for one team’s questions, still being built. It is not a public demo, and it is not a finished product you can try.</p>
+              <p class="card-path"><span>Question</span><span>Draft answer</span><span>The team</span></p>
             </article>
-            <article class="work-card">
-              <span class="work-status">Built</span>
-              <h2>Athera outreach</h2>
-              <p>Our own system, used on our own pipeline. A Google Sheets record of the relationship, and a draft of the next email waiting in Gmail.</p>
-              <p class="work-type">Sheets and Gmail</p>
+            <article>
+              <p class="offer-index">Built</p>
+              <h3>Athera outreach</h3>
+              <p>The studio’s own pipeline. Contacts live in a Google Sheet. Follow-ups are drafted in Gmail for a person to send. This is our system, not a client case study.</p>
+              <p class="card-path"><span>Sheet</span><span>Draft</span><span>Sent by a person</span></p>
             </article>
           </div>
           <p class="section-more"><a class="text-link" href="portfolio.html">Read the work</a></p>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container split">
-          <div>
+      <section class="section" data-chapter="07" data-name="Studio">
+        <div class="container">
+          <div class="section-head">
             <p class="kicker">The studio</p>
             <h2>A practice, not a department.</h2>
+            <p>One founder. The work is useful the week it ships, or it is not finished.</p>
           </div>
-          <div class="split-copy">
-            <p>Athera is the company Siddarth Boggarapu runs from Bangalore. The work is practical: remove a repeated task, catch a lead, answer a question the business already knows the answer to.</p>
-            <p>There is no bench of account managers between you and the build. If the system is not useful in the week it ships, it is not finished.</p>
-            <a class="text-link" href="about.html">About the founder</a>
+          <div class="cards">
+            <article>
+              <p class="offer-index">01</p>
+              <h3>Who builds it</h3>
+              <p>Siddarth Boggarapu builds it. Ariv S is co-founder. You are not handed to an account team after the call.</p>
+            </article>
+            <article>
+              <p class="offer-index">02</p>
+              <h3>What we will not say</h3>
+              <p>No invented results, no borrowed testimonials, no client names unless they ask. If a number is not measured, it does not go on the page or in an ad.</p>
+            </article>
+            <article>
+              <p class="offer-index">03</p>
+              <h3>Where to write</h3>
+              <p>siddarthb078@gmail.com. A short call, then a written scope, before anything is built. <a class="text-link" href="about.html">About the founder</a></p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="cta">
+      <section class="cta" data-chapter="08" data-name="Contact">
         <div class="container">
-          <h2>Tell us which job should go first.</h2>
-          <p>A short call. A written scope after it, before any fee is due for the build.</p>
+          <h2>Which job first?</h2>
+          <p>A short call. Then a written scope, before the build.</p>
           <a class="btn btn-primary" href="contact.html">Book a call</a>
         </div>
       </section>
@@ -272,7 +271,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>ATHERA</a>
-          <p>Intelligence at work. Founder-led AI systems for businesses, from Bangalore.</p>
+          <p>Intelligence at work. AI systems for owner-run businesses, from Bangalore.</p>
         </div>
         <div>
           <p class="footer-title">Pages</p>
@@ -310,7 +309,7 @@
     </div>
   </footer>
 
-  <script type="module" src="scene.js"></script>
+  <script type="module" src="scene.js?v=15"></script>
   <script src="site.js" defer></script>
 </body>
 </html>

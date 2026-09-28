@@ -10,9 +10,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A0A0A'/><circle cx='32' cy='32' r='9' fill='%23B76E79'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=18">
 </head>
-<body>
+<body class="doc">
   <canvas id="webgl" aria-hidden="true"></canvas>
   <div class="scrim" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
@@ -25,12 +25,12 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html" aria-current="page">Services</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="portfolio.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="nav-cta" href="contact.html">Book a Call</a>
+        <a class="nav-cta" href="contact.html">Book a call</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span></button>
       </div>
     </div>
@@ -39,35 +39,74 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <h1 class="rise rise-2">The practice</h1>
-        <p class="lede rise rise-3">Five systems. Each one is scoped on its own, then built into the tools the business already uses.</p>
+        <p class="kicker">Services</p>
+        <h1>Five systems, scoped one at a time.</h1>
+        <p class="lede">Each one is a job an owner already does by hand. The system lands in WhatsApp, the site, the calendar, Sheets, or Gmail.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="panel-grid">
-          <article class="panel" id="lead-generation">
+        <article class="service-row" id="lead-generation">
+          <div>
             <h2>Lead generation</h2>
-            <p>Inquiries are read, scored, and sent to the person who should reply. WhatsApp included, so a lead is not left in a chat overnight.</p>
-          </article>
-          <article class="panel" id="ad-generation">
+            <p>Inquiries are read and scored before anyone digs through a chat. The ones worth a reply reach a person, including on WhatsApp, so a lead is not left overnight.</p>
+          </div>
+          <ul class="feature-list">
+            <li>Read and score each inquiry</li>
+            <li>Send the useful ones to a person</li>
+            <li>WhatsApp included</li>
+            <li>No second inbox to learn</li>
+          </ul>
+        </article>
+        <article class="service-row" id="ad-generation">
+          <div>
             <h2>Ad generation</h2>
-            <p>Copy and creative from the offer you sell, in variations you can run. No performance number we did not measure.</p>
-          </article>
-          <article class="panel" id="ai-chatbots">
+            <p>Drafts come from the offer you actually sell, in a few variations you can approve and run. You sign off on every line. A return figure we did not measure does not go in the ad.</p>
+          </div>
+          <ul class="feature-list">
+            <li>Copy from the offer you sell</li>
+            <li>A few variations you can run</li>
+            <li>Nothing ships without approval</li>
+            <li>No invented performance numbers</li>
+          </ul>
+        </article>
+        <article class="service-row" id="ai-chatbots">
+          <div>
             <h2>Conversation</h2>
-            <p>Site and WhatsApp replies for the questions you already answer by hand. Anything uncertain goes to a person.</p>
-          </article>
-          <article class="panel" id="ai-receptionists">
+            <p>Replies for the questions you already answer by hand, on the site and on WhatsApp. If the answer is not in what you have told us, it says so and hands the thread to a person.</p>
+          </div>
+          <ul class="feature-list">
+            <li>Site and WhatsApp</li>
+            <li>The questions you already hear</li>
+            <li>Uncertain answers go to a person</li>
+            <li>It does not invent a policy</li>
+          </ul>
+        </article>
+        <article class="service-row" id="ai-receptionists">
+          <div>
             <h2>Reception</h2>
-            <p>Picks up, books the time, and routes the calls it should not decide. Your calendar stays in charge.</p>
-          </article>
-          <article class="panel" id="ai-workflows">
+            <p>It picks up, offers a time, and books into the calendar you already use. Calls it should not decide are routed to you. The calendar stays in charge of what is free.</p>
+          </div>
+          <ul class="feature-list">
+            <li>Offers a time and books it</li>
+            <li>Your calendar stays in charge</li>
+            <li>Hard calls are routed to you</li>
+            <li>No separate booking product</li>
+          </ul>
+        </article>
+        <article class="service-row" id="ai-workflows">
+          <div>
             <h2>Workflows</h2>
-            <p>Sheets, mail, and calendars joined so a follow-up is drafted once and not retyped.</p>
-          </article>
-        </div>
+            <p>The sheet, the mailbox, and the calendar joined so a follow-up is drafted once. Athera’s own outreach works this way: the record lives in Google Sheets, and the next note is drafted in Gmail for a person to send.</p>
+          </div>
+          <ul class="feature-list">
+            <li>Google Sheets for the record</li>
+            <li>Gmail for the draft</li>
+            <li>A person still sends it</li>
+            <li>Quoted per job, not as one week</li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -75,7 +114,7 @@
       <div class="container">
         <h2>Start with one.</h2>
         <p>Tell us which job should go first.</p>
-        <a class="btn btn-primary" href="contact.html">Book a Call</a>
+        <a class="btn btn-primary" href="contact.html">Book a call</a>
       </div>
     </section>
   </main>
@@ -85,7 +124,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>ATHERA</a>
-          <p>Intelligence at Work. We build AI solutions for real business problems, from chatbots to full workflow automation.</p>
+          <p>Intelligence at work. AI systems for owner-run businesses, from Bangalore.</p>
         </div>
         <div>
           <p class="footer-title">Pages</p>
@@ -93,7 +132,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="portfolio.html">Work</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -111,7 +150,7 @@
           <p class="footer-title">Contact</p>
           <ul>
             <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
-            <li><a href="contact.html">Book a Call</a></li>
+            <li><a href="contact.html">Book a call</a></li>
             <li>Bangalore, India</li>
           </ul>
         </div>

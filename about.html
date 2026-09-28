@@ -10,9 +10,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A0A0A'/><circle cx='32' cy='32' r='9' fill='%23B76E79'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=18">
 </head>
-<body>
+<body class="doc">
   <canvas id="webgl" aria-hidden="true"></canvas>
   <div class="scrim" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
@@ -25,12 +25,12 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="portfolio.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="nav-cta" href="contact.html">Book a Call</a>
+        <a class="nav-cta" href="contact.html">Book a call</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span></button>
       </div>
     </div>
@@ -39,36 +39,19 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <h1 class="rise rise-2">The founder builds it.</h1>
-        <p class="lede rise rise-3">Athera is Siddarth Boggarapu’s practice in Bangalore. One person from the first call to handover.</p>
+        <p class="kicker">About</p>
+        <h1>Two founders. Bangalore.</h1>
+        <p class="lede">Siddarth Boggarapu and Ariv S started Athera so a smaller business could use a system that, until then, was being sold to companies with a software team.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
-        <article class="panel">
-          <h2>Why it exists</h2>
-          <p>Most of the AI a small business is shown is a demonstration. The inbox, the WhatsApp thread, and the follow-up are still done by hand the next morning.</p>
-          <p>Athera exists to replace one of those jobs with a system the owner can actually use. If it needs a slide to explain the value, it is the wrong project.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="panel-grid">
-          <article class="panel">
-            <h2>What we take on</h2>
-            <p>A repeated task with a clear owner: leads, replies, bookings, or the path between tools you already pay for.</p>
-          </article>
-          <article class="panel">
-            <h2>How it ships</h2>
-            <p>In your sheet, your mailbox, your site, or WhatsApp. Not in a login you will open once.</p>
-          </article>
-          <article class="panel">
-            <h2>What we will not claim</h2>
-            <p>A percentage we did not measure, a client we cannot name, or a team that is not in the room.</p>
-          </article>
+      <div class="container split">
+        <h2>Why it started</h2>
+        <div class="split-copy">
+          <p>The offer on the market was a demonstration. The inbox, the WhatsApp thread, and the follow-up were still done by hand the next morning.</p>
+          <p>Athera started from that gap. One named job, then a system left in the sheet, the mailbox, the site, or WhatsApp. If it needs a slide to explain the value, it is the wrong project.</p>
+          <p>Names of clients stay private unless they ask to be named. A number that was not measured does not go on the page.</p>
         </div>
       </div>
     </section>
@@ -76,27 +59,36 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Leadership</span>
-          <h2>Meet the Founder</h2>
-          <p>Every Athera project is scoped, built, and supported by its founder.</p>
+          <p class="kicker">Who you write to</p>
+          <h2>The two people on the work.</h2>
         </div>
-        <article class="founder">
-          <div class="monogram" aria-hidden="true">SB</div>
-          <div>
-            <h3>Siddarth Boggarapu</h3>
-            <p class="role">Founder</p>
-            <p>Builds AI and security systems in Bangalore and leads every Athera engagement from first call to handover.</p>
-            <a class="text-link" href="https://siddarthb07.github.io/siddarthb/">View portfolio</a>
-          </div>
-        </article>
+        <div class="people">
+          <article class="founder">
+            <div class="monogram" aria-hidden="true">SB</div>
+            <div>
+              <h3>Siddarth Boggarapu</h3>
+              <p class="role">Founder</p>
+              <p>Scopes and builds the systems, from the first call to handover. Write to him at siddarthb078@gmail.com.</p>
+              <a class="text-link" href="https://siddarthb07.github.io/siddarthb/">His other work</a>
+            </div>
+          </article>
+          <article class="founder">
+            <div class="monogram" aria-hidden="true">AS</div>
+            <div>
+              <h3>Ariv S</h3>
+              <p class="role">Co-founder</p>
+              <p>Started Athera with Siddarth Boggarapu. The practice is based in Bangalore.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="cta">
       <div class="container">
-        <h2>Work with the founder.</h2>
-        <p>One call. A clear scope after it.</p>
-        <a class="btn btn-primary" href="contact.html">Book a Call</a>
+        <h2>Start with a call.</h2>
+        <p>Then a written scope, before anything is built.</p>
+        <a class="btn btn-primary" href="contact.html">Book a call</a>
       </div>
     </section>
   </main>
@@ -106,7 +98,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>ATHERA</a>
-          <p>Intelligence at Work. We build AI solutions for real business problems, from chatbots to full workflow automation.</p>
+          <p>Intelligence at work. AI systems for owner-run businesses, from Bangalore.</p>
         </div>
         <div>
           <p class="footer-title">Pages</p>
@@ -114,7 +106,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="portfolio.html">Work</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -132,7 +124,7 @@
           <p class="footer-title">Contact</p>
           <ul>
             <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
-            <li><a href="contact.html">Book a Call</a></li>
+            <li><a href="contact.html">Book a call</a></li>
             <li>Bangalore, India</li>
           </ul>
         </div>

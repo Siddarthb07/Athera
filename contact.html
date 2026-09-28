@@ -10,9 +10,9 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A0A0A'/><circle cx='32' cy='32' r='9' fill='%23B76E79'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=18">
 </head>
-<body>
+<body class="doc">
   <canvas id="webgl" aria-hidden="true"></canvas>
   <div class="scrim" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
@@ -25,12 +25,12 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="portfolio.html">Work</a></li>
           <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
-        <a class="nav-cta" href="contact.html">Book a Call</a>
+        <a class="nav-cta" href="contact.html">Book a call</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span></button>
       </div>
     </div>
@@ -39,8 +39,9 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <h1 class="rise rise-2">Write to us.</h1>
-        <p class="lede rise rise-3">A reply within a day.</p>
+        <p class="kicker">Contact</p>
+        <h1>Write to Bangalore.</h1>
+        <p class="lede">Siddarth Boggarapu reads this. A reply within a day. Then a call, and a written scope before any build.</p>
       </div>
     </section>
 
@@ -48,14 +49,15 @@
       <div class="container contact-grid">
         <div>
           <h2>Message</h2>
+          <p>Say which job should go first. The note opens in your own email app, addressed to siddarthb078@gmail.com.</p>
           <form class="form" id="contactForm">
             <div class="field-row">
               <div class="field">
-                <label for="name">Full Name</label>
+                <label for="name">Name</label>
                 <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
               </div>
               <div class="field">
-                <label for="email">Email Address</label>
+                <label for="email">Email</label>
                 <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
               </div>
             </div>
@@ -65,7 +67,7 @@
                 <input id="company" name="company" type="text" autocomplete="organization" placeholder="Your company">
               </div>
               <div class="field">
-                <label for="service">Service Interest</label>
+                <label for="service">Which job</label>
                 <select id="service" name="service">
                   <option value="">Select a service</option>
                   <option>Lead Generation</option>
@@ -79,7 +81,7 @@
             </div>
             <div class="field">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your project, goals, and timeline" required></textarea>
+              <textarea id="message" name="message" placeholder="The job, where it happens today, and what done looks like" required></textarea>
             </div>
             <div class="form-actions">
               <button class="btn btn-primary" type="submit">Send Message</button>
@@ -90,22 +92,23 @@
 
         <aside>
           <h2>Or book a call</h2>
+          <p>A short call with Siddarth Boggarapu. Not a shared inbox.</p>
           <ul class="info-list">
             <li>
-              <span class="info-label">Strategy call</span>
-              <a href="mailto:siddarthb078@gmail.com?subject=Book%20a%20Call%20-%20Athera">Book a free 30-minute call</a>
+              <span class="info-label">Call</span>
+              <a href="mailto:siddarthb078@gmail.com?subject=Book%20a%20call%20-%20Athera">Write to book a call</a>
             </li>
             <li>
               <span class="info-label">Email</span>
               <a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a>
             </li>
             <li>
-              <span class="info-label">Location</span>
+              <span class="info-label">Where</span>
               <span>Bangalore, India</span>
             </li>
             <li>
-              <span class="info-label">Response time</span>
-              <span>Within 24 hours</span>
+              <span class="info-label">Reply</span>
+              <span>Within a day</span>
             </li>
           </ul>
         </aside>
@@ -115,24 +118,24 @@
     <section class="section">
       <div class="container faq">
         <div class="section-head">
-          <span class="eyebrow">Questions</span>
-          <h2>Frequently Asked Questions</h2>
+          <p class="kicker">Before the call</p>
+          <h2>A few straight answers.</h2>
         </div>
         <details>
-          <summary>How quickly can you deliver results?</summary>
-          <p>Most projects go live within 2 to 4 weeks. Simpler implementations like chatbots can deploy in as little as one week. Complex workflow automations may take 4 to 6 weeks.</p>
+          <summary>How long does a job take?</summary>
+          <p>It is written in the scope. A conversation can be short. A workflow takes longer. We do not promise one week for every kind of work.</p>
         </details>
         <details>
-          <summary>What industries do you work with?</summary>
-          <p>We work with small and growing businesses. Our AI solutions adapt to most business models, and every project starts by learning how yours actually runs.</p>
+          <summary>Who is it for?</summary>
+          <p>An owner-run business. A clinic, a studio, a shop, a small firm. Not a company that already has a software team.</p>
         </details>
         <details>
-          <summary>Do you offer ongoing support?</summary>
-          <p>Yes. We offer maintenance, performance monitoring, and continuous improvements so your AI systems keep working as your business grows.</p>
+          <summary>Who do I write to after it ships?</summary>
+          <p>Siddarth Boggarapu, at the same email. Ariv S is co-founder. There is no shared inbox and no second login.</p>
         </details>
         <details>
-          <summary>What's the investment range?</summary>
-          <p>Pricing depends on scope. Every engagement begins with a free strategy call, and you get a clear quote before any work starts.</p>
+          <summary>What does it cost?</summary>
+          <p>The fee is in the written scope, before the build. There is no single price that pretends a receptionist and a workflow are the same job.</p>
         </details>
       </div>
     </section>
@@ -143,7 +146,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>ATHERA</a>
-          <p>Intelligence at Work. We build AI solutions for real business problems, from chatbots to full workflow automation.</p>
+          <p>Intelligence at work. AI systems for owner-run businesses, from Bangalore.</p>
         </div>
         <div>
           <p class="footer-title">Pages</p>
@@ -151,7 +154,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="portfolio.html">Work</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -169,7 +172,7 @@
           <p class="footer-title">Contact</p>
           <ul>
             <li><a href="mailto:siddarthb078@gmail.com">siddarthb078@gmail.com</a></li>
-            <li><a href="contact.html">Book a Call</a></li>
+            <li><a href="contact.html">Book a call</a></li>
             <li>Bangalore, India</li>
           </ul>
         </div>

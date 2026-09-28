@@ -125,7 +125,7 @@ for (let i = 0; i < 48; i += 1) {
   streaks.push(streak);
 }
 
-function braid(phase, radius, turns, tube) {
+function braidCurve(phase, radius, turns) {
   const points = [];
   const steps = 140;
   for (let i = 0; i <= steps; i += 1) {
@@ -137,12 +137,13 @@ function braid(phase, radius, turns, tube) {
       Math.sin(angle) * radius * 0.66
     ));
   }
-  return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 180, tube, 18, false);
+  return new THREE.CatmullRomCurve3(points);
 }
 
 const ribbonMat = new THREE.ShaderMaterial({
   uniforms,
   toneMapped: false,
+  transparent: true,
   vertexShader: `
     uniform float uTime;
     uniform float uScroll;
@@ -177,18 +178,36 @@ const ribbonMat = new THREE.ShaderMaterial({
       float alpha = mix(0.72, 1.0, fres);
       gl_FragColor = vec4(col, alpha);
     }
-  `,
-  transparent: true
+  `
 });
 
 const braidGroup = new THREE.Group();
+const signals = [];
 [
   [0, 1.15, 1.35, 0.055],
   [2.2, 0.92, 1.7, 0.032],
   [4.1, 1.32, 1.1, 0.022]
-].forEach(([phase, radius, turns, tube]) => {
-  const mesh = new THREE.Mesh(braid(phase, radius, turns, tube), ribbonMat);
-  braidGroup.add(mesh);
+].forEach(([phase, radius, turns, tube], index) => {
+  const curve = braidCurve(phase, radius, turns);
+  const strand = new THREE.Mesh(new THREE.TubeGeometry(curve, 180, tube, 18, false), ribbonMat);
+  strand.userData.strand = true;
+  braidGroup.add(strand);
+  if (index !== 0) return;
+  for (let s = 0; s < 3; s += 1) {
+    const bead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.034, 16, 16),
+      new THREE.MeshBasicMaterial({
+        color: 0xf6f1ea,
+        transparent: true,
+        opacity: 0.95,
+        toneMapped: false
+      })
+    );
+    bead.userData.curve = curve;
+    bead.userData.offset = s / 3;
+    strand.add(bead);
+    signals.push(bead);
+  }
 });
 scene.add(braidGroup);
 
@@ -239,7 +258,8 @@ function apply(p, ix, iy) {
   uniforms.uPointer.value.set(ix, iy);
 
   const orbit = p * Math.PI * 1.35;
-  braidGroup.position.x = wide ? 1.15 : 0;
+  const intoCenter = smooth(0.08, 0.28, p) * (1 - smooth(0.42, 0.62, p));
+  braidGroup.position.x = wide ? 1.15 - intoCenter * 0.35 : 0;
   braidGroup.position.y = Math.sin(orbit) * 0.35;
   braidGroup.scale.setScalar(wide ? 1.05 + Math.sin(p * Math.PI) * 0.28 : 0.62);
   braidGroup.rotation.y = orbit + ix * 0.45;
@@ -247,12 +267,20 @@ function apply(p, ix, iy) {
   braidGroup.rotation.z = Math.sin(orbit) * 0.18 + ix * 0.06;
 
   braidGroup.children.forEach((strand, index) => {
+    if (!strand.userData.strand) return;
     const side = index - 1;
     const peel = Math.sin(p * Math.PI);
     strand.position.x = side * peel * 0.55;
     strand.position.z = side * peel * 0.35;
     strand.rotation.y = side * p * 1.8;
     strand.rotation.z = side * peel * 0.4;
+  });
+
+  signals.forEach((bead) => {
+    const t = (clock * 0.045 + bead.userData.offset) % 1;
+    bead.position.copy(bead.userData.curve.getPointAt(t));
+    const pulse = 0.85 + Math.sin((clock + bead.userData.offset * 8) * 3) * 0.15;
+    bead.scale.setScalar(reduce ? 1 : pulse);
   });
 
   field.rotation.y = ix * 0.22 + p * 1.1;
