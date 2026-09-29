@@ -345,16 +345,16 @@ function apply(p, ix, iy) {
   if (inner) {
     const settle = reduce ? 1 : Math.min(1, p / 0.82);
     const open = 1 - settle;
-    clasp.position.x = wide ? pose.x + ix * 0.04 : 0.15;
-    clasp.position.y = 1.12 * open + pose.y * settle;
+    clasp.position.x = wide ? pose.x + ix * 0.04 : ix * 0.04;
+    clasp.position.y = (wide ? 1.12 : 0.22) * open + pose.y * settle + (wide ? 0 : 1.15);
     clasp.rotation.y = pose.rot - open * 0.95;
     clasp.rotation.x = 0.18 * open;
     clasp.rotation.z = open * 0.08;
-    clasp.scale.setScalar((wide ? pose.scale : 0.55) * (0.94 + 0.06 * settle));
+    clasp.scale.setScalar((wide ? pose.scale : 0.98) * (0.94 + 0.06 * settle));
     clasp.children.forEach((child) => {
       if (!child.userData.link) return;
       const slot = child.userData.slot - 1;
-      child.position.y = slot * open * 0.46;
+      child.position.y = slot * open * (wide ? 0.46 : 0.2);
       child.rotation.z = slot * open * 0.16;
     });
     claspBead.position.copy(claspBead.userData.curve.getPointAt(Math.min(0.999, settle)));
@@ -365,24 +365,25 @@ function apply(p, ix, iy) {
   }
 
   const orbit = p * Math.PI * 1.2;
-  const idle = reduce ? 0 : clock * 0.12;
-  braidGroup.position.x = wide ? pose.x + ix * 0.18 : 0.15;
-  braidGroup.position.y = pose.y + Math.sin(orbit) * 0.28 - iy * 0.12;
-  braidGroup.scale.setScalar(wide ? pose.scale + Math.sin(p * Math.PI) * 0.12 : 0.58);
-  braidGroup.rotation.y = pose.rot + idle + orbit + ix * 0.4;
-  braidGroup.rotation.x = -0.22 + Math.sin(orbit * 0.5) * 0.28 - iy * 0.2;
-  braidGroup.rotation.z = Math.sin(orbit) * 0.12;
+  const idle = reduce ? 0 : clock * (wide ? 0.12 : 0.02);
+  const flow = Math.sin(p * Math.PI);
+  braidGroup.position.x = wide ? pose.x + ix * 0.18 : ix * 0.06;
+  braidGroup.position.y = pose.y + Math.sin(orbit) * (wide ? 0.28 : 0.46) - iy * 0.12 + (wide ? 0 : 0.42);
+  braidGroup.scale.setScalar((wide ? pose.scale : 1.05) + flow * 0.14);
+  braidGroup.rotation.y = pose.rot + idle + orbit + ix * (wide ? 0.4 : 0.12);
+  braidGroup.rotation.x = -0.22 + Math.sin(orbit * 0.5) * (wide ? 0.28 : 0.4) - iy * 0.2;
+  braidGroup.rotation.z = Math.sin(orbit) * (wide ? 0.12 : 0.2);
 
   braidGroup.children.forEach((child, index) => {
     if (child.userData.strand) {
       const side = index - 1;
-      const peel = Math.sin(p * Math.PI);
+      const peel = flow * (wide ? 1 : 1.25);
       child.position.x = side * peel * 0.42;
       child.position.z = side * peel * 0.28;
       child.rotation.y = side * p * 1.4;
       return;
     }
-    if (child.userData.gate && !reduce) {
+    if (child.userData.gate && !reduce && wide) {
       child.rotation.z += 0.002 * child.userData.spin * 8;
     }
   });
@@ -407,10 +408,10 @@ function apply(p, ix, iy) {
     card.rotation.y = side * open * 0.28;
   });
 
-  camera.position.x = Math.sin(orbit * 0.5) * 0.35 + ix * 0.2;
-  camera.position.y = 0.12 + Math.sin(p * Math.PI) * 0.35;
-  camera.position.z = 8.5 - Math.sin(p * Math.PI) * 1.1;
-  camera.lookAt(wide ? 0.35 : 0, braidGroup.position.y * 0.25, 0);
+  camera.position.x = Math.sin(orbit * 0.5) * (wide ? 0.35 : 0.12) + ix * (wide ? 0.2 : 0.06);
+  camera.position.y = 0.12 + flow * (wide ? 0.35 : 0.48);
+  camera.position.z = wide ? 8.5 - flow * 1.1 : 8.15 - flow * 0.85;
+  camera.lookAt(wide ? 0.35 : 0, braidGroup.position.y * (wide ? 0.25 : 0.4), 0);
 
   if (story) showCopy(p < 0.26 ? 0 : p < 0.52 ? 1 : p < 0.76 ? 2 : 3);
   document.documentElement.style.setProperty('--scroll-p', p.toFixed(4));
