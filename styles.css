@@ -1551,7 +1551,7 @@ h3 {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(90deg, rgba(7, 6, 11, 0.78) 0%, rgba(7, 6, 11, 0.34) 36%, rgba(7, 6, 11, 0) 62%);
+  background: linear-gradient(90deg, rgba(7, 6, 11, 0.94) 0%, rgba(7, 6, 11, 0.86) 32%, rgba(7, 6, 11, 0.28) 54%, rgba(7, 6, 11, 0) 72%);
 }
 
 main,
@@ -3005,5 +3005,139 @@ body.doc .cta h2 {
   body[data-page="contact"] .contact-stage {
     max-width: none;
     margin-left: auto;
+  }
+}
+
+.sheet {
+  background: transparent;
+}
+
+.sheet .section-head,
+.sheet .section-head h2,
+.sheet .section-head p,
+.sheet .cards,
+.sheet .section-more,
+.sheet .cta h2,
+.sheet .cta p {
+  max-width: 38rem;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.sheet .section-head::before,
+.section-head::before {
+  content: none;
+}
+
+.sheet .cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 8px;
+}
+
+.sheet .cards article {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  grid-template-areas:
+    "mark title"
+    "mark copy"
+    "mark path";
+  gap: 6px 22px;
+  min-height: 0;
+  padding: 18px 0;
+  border: 0;
+  border-top: 1px solid rgba(198, 163, 106, 0.34);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.sheet .cards article:last-child {
+  border-bottom: 1px solid rgba(198, 163, 106, 0.34);
+}
+
+.sheet .offer-index {
+  grid-area: mark;
+  padding-top: 4px;
+  color: #C6A36A;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sheet .cards h3 {
+  grid-area: title;
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.sheet .cards article > p:not(.offer-index):not(.card-path) {
+  grid-area: copy;
+  margin: 0;
+  color: #F6F1EA;
+}
+
+.sheet .card-path {
+  grid-area: path;
+  margin-top: 4px;
+  padding-top: 0;
+}
+
+.sheet .cta {
+  text-align: left;
+}
+
+.sheet .cta::before {
+  display: none;
+}
+
+.sheet .cta h2 {
+  font-size: clamp(1.85rem, 2.5vw, 2.45rem);
+}
+
+.sheet .cta .btn {
+  margin-top: 18px;
+}
+
+body.doc .contact-panel {
+  padding: 8px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+body.doc .faq-band {
+  border-top: 0;
+  background: transparent;
+}
+
+body.doc .faq-grid {
+  display: block;
+  max-width: 38rem;
+  padding-top: 28px;
+}
+
+body.doc main {
+  padding-bottom: 42vh;
+}
+
+body[data-page="contact"] .contact-stage {
+  max-width: 38rem;
+}
+
+@media (max-width: 860px) {
+  .sheet .cards article {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "mark"
+      "title"
+      "copy"
+      "path";
   }
 }

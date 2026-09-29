@@ -252,10 +252,11 @@ const clasp = new THREE.Group();
   [0.15, 1.05, 0.62, 0.045],
   [1.2, 0.92, 0.7, 0.034],
   [2.25, 1.18, 0.5, 0.028]
-].forEach(([tilt, rx, ry, tube]) => {
+].forEach(([tilt, rx, ry, tube], slot) => {
   const curve = linkCurve(tilt, rx, ry);
   const link = new THREE.Mesh(new THREE.TubeGeometry(curve, 140, tube, 12, true), ribbonMat);
   link.userData.link = true;
+  link.userData.slot = slot;
   link.userData.curve = curve;
   clasp.add(link);
 });
@@ -339,26 +340,38 @@ function showCopy(index) {
 function apply(p, ix, iy) {
   const wide = window.innerWidth > 860;
   uniforms.uScroll.value = p;
-  uniforms.uPointer.value.set(ix, iy);
+  uniforms.uPointer.value.set(inner ? ix * 0.25 : ix, iy);
 
-  const swing = inner ? 0.18 : 1;
-  const orbit = p * Math.PI * 1.2 * swing;
-  const idle = reduce ? 0 : clock * (inner ? 0.045 : 0.12);
-  const subject = inner ? clasp : braidGroup;
-  subject.position.x = wide ? pose.x + ix * 0.08 * swing : 0.15;
-  subject.position.y = pose.y + Math.sin(orbit) * 0.28 * swing - iy * 0.05 * swing;
-  subject.scale.setScalar(wide ? pose.scale + Math.sin(p * Math.PI) * 0.12 * swing : 0.58);
-  subject.rotation.y = pose.rot + idle + orbit + ix * 0.15 * swing;
-  subject.rotation.x = (inner ? 0.08 : -0.22) + Math.sin(orbit * 0.5) * 0.28 * swing - iy * 0.08 * swing;
-  subject.rotation.z = Math.sin(orbit) * 0.12 * swing;
-  if (!inner) {
+  if (inner) {
+    const settle = reduce ? 1 : Math.min(1, p / 0.82);
+    const open = 1 - settle;
+    clasp.position.x = wide ? pose.x + ix * 0.04 : 0.15;
+    clasp.position.y = 1.12 * open + pose.y * settle;
+    clasp.rotation.y = pose.rot - open * 0.95;
+    clasp.rotation.x = 0.18 * open;
+    clasp.rotation.z = open * 0.08;
+    clasp.scale.setScalar((wide ? pose.scale : 0.55) * (0.94 + 0.06 * settle));
+    clasp.children.forEach((child) => {
+      if (!child.userData.link) return;
+      const slot = child.userData.slot - 1;
+      child.position.y = slot * open * 0.46;
+      child.rotation.z = slot * open * 0.16;
+    });
+    claspBead.position.copy(claspBead.userData.curve.getPointAt(Math.min(0.999, settle)));
+    camera.position.set(0.04, 0.04, 8.5);
+    camera.lookAt(0.18, -0.22 * open, 0);
+    document.documentElement.style.setProperty('--scroll-p', p.toFixed(4));
+    return;
+  }
+
+  const orbit = p * Math.PI * 1.2;
+  const idle = reduce ? 0 : clock * 0.12;
   braidGroup.position.x = wide ? pose.x + ix * 0.18 : 0.15;
   braidGroup.position.y = pose.y + Math.sin(orbit) * 0.28 - iy * 0.12;
   braidGroup.scale.setScalar(wide ? pose.scale + Math.sin(p * Math.PI) * 0.12 : 0.58);
   braidGroup.rotation.y = pose.rot + idle + orbit + ix * 0.4;
-  braidGroup.rotation.x = -0.22 + Math.sin(p * Math.PI * 1.2 * 0.5) * 0.28 - iy * 0.2;
-  braidGroup.rotation.z = Math.sin(p * Math.PI * 1.2) * 0.12;
-  }
+  braidGroup.rotation.x = -0.22 + Math.sin(orbit * 0.5) * 0.28 - iy * 0.2;
+  braidGroup.rotation.z = Math.sin(orbit) * 0.12;
 
   braidGroup.children.forEach((child, index) => {
     if (child.userData.strand) {
@@ -381,12 +394,7 @@ function apply(p, ix, iy) {
     bead.scale.setScalar(reduce ? 1 : pulse);
   });
 
-  if (inner) {
-    const t = reduce ? 0.2 : (clock * 0.02) % 1;
-    claspBead.position.copy(claspBead.userData.curve.getPointAt(t));
-  }
-
-  const open = page === 'work' ? 0.7 + p * 0.4 : Math.sin(p * Math.PI);
+  const open = Math.sin(p * Math.PI);
   deck.position.set(
     wide ? pose.x + 0.2 : 0,
     -2.05 + open * 0.25,
@@ -399,15 +407,10 @@ function apply(p, ix, iy) {
     card.rotation.y = side * open * 0.28;
   });
 
-  if (inner) {
-    camera.position.set(ix * 0.04, 0.1, 8.7);
-    camera.lookAt(0.15, clasp.position.y * 0.1, 0);
-  } else {
-    camera.position.x = Math.sin(orbit * 0.5) * 0.35 + ix * 0.2;
-    camera.position.y = 0.12 + Math.sin(p * Math.PI) * 0.35;
-    camera.position.z = 8.5 - Math.sin(p * Math.PI) * 1.1;
-    camera.lookAt(wide ? 0.35 : 0, braidGroup.position.y * 0.25, 0);
-  }
+  camera.position.x = Math.sin(orbit * 0.5) * 0.35 + ix * 0.2;
+  camera.position.y = 0.12 + Math.sin(p * Math.PI) * 0.35;
+  camera.position.z = 8.5 - Math.sin(p * Math.PI) * 1.1;
+  camera.lookAt(wide ? 0.35 : 0, braidGroup.position.y * 0.25, 0);
 
   if (story) showCopy(p < 0.26 ? 0 : p < 0.52 ? 1 : p < 0.76 ? 2 : 3);
   document.documentElement.style.setProperty('--scroll-p', p.toFixed(4));
